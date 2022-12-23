@@ -227,21 +227,27 @@ main .submit-modal .close-modal-button {
   body {
     background-position: center;
   }
-  body .add-game-button {
+  main .add-game-button {
     display: none;
   }
-  body .add-game-button-mobile {
+  main .add-game-button-mobile {
     display: unset;
   }
-  body .main-button {
+  main .main-button {
     padding: unset;
     margin-bottom: 5px;
   }
-  body .submit-modal {
+  main .card .card-header::after {
+    margin-top: unset;
+  }
+  main .card .card-item div:nth-child(2) {
+    margin-top: unsetS;
+  }
+  main .submit-modal {
     top: 10px;
     width: 90%;
   }
-  body .submit-modal .modal-header {
+  main .submit-modal .modal-header {
     padding: unset;
   }
 }/*# sourceMappingURL=index.css.map */

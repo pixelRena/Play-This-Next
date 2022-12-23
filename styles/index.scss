@@ -251,27 +251,34 @@ main {
 @media (max-width: 768px) {
     body {
         background-position: center;
+    }
 
-        .add-game-button {
-            display: none;
-        }
+    main {
+        .add-game-button { display: none; }
 
-        .add-game-button-mobile {
-            display: unset;
-        }
+        .add-game-button-mobile { display: unset; }
 
         .main-button {
             padding: unset;
             margin-bottom: 5px;
         }
 
+        .card {
+            .card-header { 
+                &::after { margin-top: unset; }
+            }
+            .card-item {
+                & div:nth-child(2) {
+                    margin-top: unsetS;
+                }
+            }
+        }
+
         .submit-modal {
             top: 10px;
             width: 90%;
 
-            .modal-header {
-                padding: unset;
-            }
+            .modal-header { padding: unset; }
         }
     }
 }
