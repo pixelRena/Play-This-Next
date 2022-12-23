@@ -3,14 +3,16 @@
 <head>
     <meta charset='utf-8'>
     <title>Serenuy Games</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <link rel="stylesheet" type="text/css" href="styles/index.css">
 </head>
 <body>
     <main>
         <section><div class="background-overlay"></div></section>
         <section>
-            <div class="avatar"></div>
+            <div class="avatar-container">
+                <div class="avatar"></div>
+            </div>
             <button class="main-button">View Owned Games</button>
             <button class="add-game-button-mobile">Submit Game Suggestion</button>
             <div class="card">
@@ -41,28 +43,30 @@
                 <div class="card-footer">Games Completed: 21</div>
             </div>
         </section>
-        <section class="submit-modal">
-            <h2 class="modal-header">Suggest a game</h2>
-            <div class="modal-body">
-                <input type="text" placeholder="Search a game...">
-                <div class="modal-listed-games"></div>
+        <section class="modal-section">
+            <div class="submit-modal">
+                <h2 class="modal-header">Suggest a game</h2>
+                <div class="modal-body">
+                    <input type="text" placeholder="Search a game...">
+                    <div class="modal-listed-games"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="submit-game-button">Submit Game Suggestion</button>
+                    <button class="close-modal-button">Close</button></div>
             </div>
-            <div class="modal-footer">
-                <button class="submit-game-button">Submit Game Suggestion</button>
-                <button class="close-modal-button">Close</button></div>
         </section>
     </main>   
     <script>
-        let modalElement = document.querySelector(".submit-modal");
+        let modalElement = document.querySelector(".modal-section");
         let openModalButton = document.querySelector(".add-game-button");
         let openModalButtonMobile = document.querySelector(".add-game-button-mobile");
         let closeModalButton = document.querySelector(".close-modal-button");
         
         openModalButton.addEventListener("click", () => {
-            modalElement.style.display = "flex";
+            modalElement.style.display = "block";
         })   
         openModalButtonMobile.addEventListener("click", () => {
-            modalElement.style.display = "flex";
+            modalElement.style.display = "block";
         })   
         closeModalButton.addEventListener("click", () => {
             modalElement.style.display = "none";

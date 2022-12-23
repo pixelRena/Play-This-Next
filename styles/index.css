@@ -4,7 +4,6 @@
 }
 
 html, body {
-  height: 100%;
   width: 100%;
   margin: 0;
   font-family: "Bungee Hairline", monospace;
@@ -14,10 +13,10 @@ html, body {
 }
 
 body {
+  height: 100vh;
   background-image: url(../assets/images/rave-video-low-polygon.gif);
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: scroll;
 }
 
 button {
@@ -45,17 +44,39 @@ main section:nth-child(2) {
   position: relative;
   z-index: 2;
 }
-main .avatar {
-  /* background: url(https://static-cdn.jtvnw.net/jtv_user_pictures/85dded9e-d545-495f-bbdf-d09704c8610a-profile_image-70x70.png); */
-  background: #3500D4;
-  width: 150px;
-  height: 150px;
-  border-radius: 9000px;
-  border: 1px solid #3500D4;
-  background-repeat: no-repeat;
+main section:nth-child(3) {
+  height: 100%;
+  display: none;
+  position: absolute;
+}
+main section:nth-child(3)::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 5;
+}
+main .avatar-container {
   display: block;
   margin: 0 auto;
   margin-bottom: 20px;
+  overflow: hidden;
+  width: 130px;
+  height: 130px;
+  border-radius: 9000px;
+  border: 5px solid black;
+}
+main .avatar-container .avatar {
+  background: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0f37c36a-d254-4e52-b427-08fc2280e223/de8uyku-54403585-a288-4b6a-a536-959c12487df3.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzBmMzdjMzZhLWQyNTQtNGU1Mi1iNDI3LTA4ZmMyMjgwZTIyM1wvZGU4dXlrdS01NDQwMzU4NS1hMjg4LTRiNmEtYTUzNi05NTljMTI0ODdkZjMuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.22y6Hu_wV8L7i92LLrv5dHRmX8Sy8-EE1r3H7OfL_7E);
+  background-color: #3500D4;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
 }
 main .main-button {
   margin-bottom: 20px;
@@ -154,23 +175,13 @@ main .card .card-footer {
   border-width: 0px 0px 10px 0px;
 }
 main .submit-modal {
-  position: absolute;
-  display: none;
+  position: relative;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
+  margin: 0 auto;
   width: 55vw;
   z-index: 5;
-}
-main .submit-modal::before {
-  position: fixed;
-  top: 0;
-  left: 0;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: -50;
 }
 main .submit-modal .modal-body,
 main .submit-modal .modal-header {
@@ -244,7 +255,7 @@ main .main-button {
     margin-bottom: 5px;
   }
   main .card {
-    font-size: smaller;
+    font-size: 13px;
   }
   main .card .card-header {
     margin-top: 10px;
@@ -254,6 +265,9 @@ main .main-button {
   }
   main .card .card-item div:nth-child(2) {
     margin-top: unset;
+  }
+  main .card .card-item .card-extra-information {
+    font-size: unset;
   }
   main .submit-modal {
     width: 90%;
