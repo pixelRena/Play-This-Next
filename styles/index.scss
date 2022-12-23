@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: 'Bungee Hairline', monospace;
+    font-size: 22px;
+    color: white;
+}
+
+body {
+    background-image: url(../assets/images/rave-video-low-polygon.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 1;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    section:nth-child(2) {
+        position: relative;
+        z-index: 2;
+    }
+
+    .avatar {
+        /* background: url(https://static-cdn.jtvnw.net/jtv_user_pictures/85dded9e-d545-495f-bbdf-d09704c8610a-profile_image-70x70.png); */
+        background: #3500D4;
+        width: 150px;
+        height: 150px;
+        border-radius: 9000px;
+        border: 1px solid #3500D4;
+        background-repeat: no-repeat;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    .main-button {
+        margin-bottom: 20px;
+        font-family: inherit;
+        font-size: 20px;
+        color: inherit;
+        background-color: #3500D4;
+        border-color:black;
+        border-radius: 0px 21px 21px 21px;
+        border-width: 3px 10px 10px 1px;
+        padding: 0 100px 0 100px;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .card {
+        background-color: #0C0C0C;
+        border: 2px solid #3500D4;
+        border-radius: 0px 21px 21px 21px;
+
+        .card-header,
+        .card-body,
+        .card-footer {
+            padding: 0 25px 15px 25px;
+        }
+
+            
+        .card-header {
+            font-weight: unset;
+            margin-top: unset;
+
+            &::after {
+                content: "";
+                margin-top: -15px;
+                display: block;
+                border-bottom: 0.3px solid white;
+                width: 35%;
+            }
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            height: 280px;
+            overflow: auto;
+        }
+
+        .card-item {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 15px;
+
+            & div:nth-child(2) {
+                margin-top: -20px;
+            }
+
+            .card-image-holder {
+                overflow: hidden;
+                width: 100px;
+                height: 100px;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-position: center;
+                object-fit: contain;
+            }
+
+            .card-extra-information { font-size: 17px; }
+        }
+
+        .card-footer {
+            background-color: black;
+            border-radius: 0px 0px 19px 19px;
+            border: 1px solid #3500D4;
+            border-width: 0px 0px 10px 0px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        background-position: center;
+    }
+    .main-button {
+        padding: unset;
+    }
+}
