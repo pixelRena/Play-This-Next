@@ -171,13 +171,12 @@ main {
 
     .submit-modal {
         position: absolute;
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: center;
         height: 100%;
         width: 55vw;
         z-index: 5;
-        visibility: hidden;
 
         &::before {
             position: fixed;
@@ -192,13 +191,11 @@ main {
 
         .modal-body,
         .modal-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             background-color: $secondary-color;
         }
 
         .modal-header {
+            text-align: center;
             padding: 0 150px 0 150px;
             font-weight: unset;
             border: 1px solid $primary-color;
@@ -258,8 +255,8 @@ main {
     body { background-position: center; }
 
     main {
-        button { padding: 10px 15px 10px 15px; }
-        
+        button { padding: 10px 15px 10px 15px !important; }
+
         .add-game-button { display: none; }
 
         .add-game-button-mobile,
@@ -273,6 +270,7 @@ main {
         .card {
             font-size: smaller;
             .card-header { 
+                margin-top: 10px;
                 &::after { margin-top: unset; }
             }
             .card-item {
@@ -281,9 +279,7 @@ main {
         }
 
         .submit-modal {
-            top: 10px;
             width: 90%;
-
             .modal-header { padding: unset; }
         }
     }

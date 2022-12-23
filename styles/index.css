@@ -155,13 +155,12 @@ main .card .card-footer {
 }
 main .submit-modal {
   position: absolute;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   height: 100%;
   width: 55vw;
   z-index: 5;
-  visibility: hidden;
 }
 main .submit-modal::before {
   position: fixed;
@@ -175,12 +174,10 @@ main .submit-modal::before {
 }
 main .submit-modal .modal-body,
 main .submit-modal .modal-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: #0C0C0C;
 }
 main .submit-modal .modal-header {
+  text-align: center;
   padding: 0 150px 0 150px;
   font-weight: unset;
   border: 1px solid #3500D4;
@@ -234,7 +231,7 @@ main .submit-modal .close-modal-button {
     background-position: center;
   }
   main button {
-    padding: 10px 15px 10px 15px;
+    padding: 10px 15px 10px 15px !important;
   }
   main .add-game-button {
     display: none;
@@ -249,6 +246,9 @@ main .main-button {
   main .card {
     font-size: smaller;
   }
+  main .card .card-header {
+    margin-top: 10px;
+  }
   main .card .card-header::after {
     margin-top: unset;
   }
@@ -256,7 +256,6 @@ main .main-button {
     margin-top: unset;
   }
   main .submit-modal {
-    top: 10px;
     width: 90%;
   }
   main .submit-modal .modal-header {
