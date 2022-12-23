@@ -155,6 +155,9 @@ main .card .card-footer {
 }
 main .submit-modal {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 100%;
   width: 55vw;
   z-index: 5;
