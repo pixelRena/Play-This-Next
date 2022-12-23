@@ -258,6 +258,8 @@ main {
     body { background-position: center; }
 
     main {
+        button { padding: 10px 15px 10px 15px; }
+        
         .add-game-button { display: none; }
 
         .add-game-button-mobile,
@@ -265,7 +267,6 @@ main {
             font-size: 15px;
             display: block;
             margin: 0 auto;
-            padding: 15px 20px 15px 20px;
             margin-bottom: 5px;
         }
 

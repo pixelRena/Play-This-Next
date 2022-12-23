@@ -233,6 +233,9 @@ main .submit-modal .close-modal-button {
   body {
     background-position: center;
   }
+  main button {
+    padding: 10px 15px 10px 15px;
+  }
   main .add-game-button {
     display: none;
   }
@@ -241,7 +244,6 @@ main .main-button {
     font-size: 15px;
     display: block;
     margin: 0 auto;
-    padding: 15px 20px 15px 20px;
     margin-bottom: 5px;
   }
   main .card {
