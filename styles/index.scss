@@ -15,12 +15,14 @@ html, body {
     font-family: 'Bungee Hairline', monospace;
     font-size: 22px;
     color: white;
+    background-color: black;
 }
 
 body {
     background-image: url(../assets/images/rave-video-low-polygon.gif);
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 button { cursor: pointer; }
@@ -80,6 +82,7 @@ main {
         font-size: 20px;
         font-weight: bolder;
         background-color: white;
+        color: black;
         border: 1px solid $primary-color; 
         border-color:black;
         border-radius: 0px 21px 21px 21px;
@@ -249,28 +252,27 @@ main {
 }
 
 @media (max-width: 768px) {
-    body {
-        background-position: center;
-    }
+    body { background-position: center; }
 
     main {
         .add-game-button { display: none; }
 
-        .add-game-button-mobile { display: unset; }
-
-        .main-button {
+        .add-game-button-mobile,
+        .main-button { 
+            font-size: 15px;
+            display: block;
+            margin: 0 auto;
             padding: unset;
             margin-bottom: 5px;
         }
 
         .card {
+            font-size: smaller;
             .card-header { 
                 &::after { margin-top: unset; }
             }
             .card-item {
-                & div:nth-child(2) {
-                    margin-top: unset;
-                }
+                & div:nth-child(2) { margin-top: unset; }
             }
         }
 

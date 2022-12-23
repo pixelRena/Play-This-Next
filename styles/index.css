@@ -10,12 +10,14 @@ html, body {
   font-family: "Bungee Hairline", monospace;
   font-size: 22px;
   color: white;
+  background-color: black;
 }
 
 body {
   background-image: url(../assets/images/rave-video-low-polygon.gif);
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 button {
@@ -74,6 +76,7 @@ main .add-game-button-mobile {
   font-size: 20px;
   font-weight: bolder;
   background-color: white;
+  color: black;
   border: 1px solid #3500D4;
   border-color: black;
   border-radius: 0px 21px 21px 21px;
@@ -230,12 +233,16 @@ main .submit-modal .close-modal-button {
   main .add-game-button {
     display: none;
   }
-  main .add-game-button-mobile {
-    display: unset;
-  }
-  main .main-button {
+  main .add-game-button-mobile,
+main .main-button {
+    font-size: 15px;
+    display: block;
+    margin: 0 auto;
     padding: unset;
     margin-bottom: 5px;
+  }
+  main .card {
+    font-size: smaller;
   }
   main .card .card-header::after {
     margin-top: unset;
