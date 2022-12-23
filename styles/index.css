@@ -18,6 +18,10 @@ body {
   background-size: cover;
 }
 
+button {
+  cursor: pointer;
+}
+
 .background-overlay {
   position: fixed;
   top: 0;
@@ -62,12 +66,37 @@ main .main-button {
   border-width: 3px 10px 10px 1px;
   padding: 0 100px 0 100px;
   width: 100%;
-  cursor: pointer;
+}
+main .add-game-button-mobile {
+  display: none;
+  margin-bottom: 5px;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: bolder;
+  background-color: white;
+  border: 1px solid #3500D4;
+  border-color: black;
+  border-radius: 0px 21px 21px 21px;
+  border-width: 3px 10px 10px 1px;
+  width: 100%;
 }
 main .card {
   background-color: #0C0C0C;
   border: 2px solid #3500D4;
   border-radius: 0px 21px 21px 21px;
+}
+main .card .add-game-button {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  width: 50px;
+  background: #FFFFFF;
+  border: 2px solid #3500D4;
+  border-radius: 0px 21px 21px 0px;
+  color: black;
+  font-size: 40px;
+  font-family: monospace;
+  font-weight: lighter;
 }
 main .card .card-header,
 main .card .card-body,
@@ -121,12 +150,98 @@ main .card .card-footer {
   border: 1px solid #3500D4;
   border-width: 0px 0px 10px 0px;
 }
+main .submit-modal {
+  position: absolute;
+  height: 100%;
+  width: 55vw;
+  z-index: 5;
+  visibility: hidden;
+}
+main .submit-modal::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: -50;
+}
+main .submit-modal .modal-body,
+main .submit-modal .modal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0C0C0C;
+}
+main .submit-modal .modal-header {
+  padding: 0 150px 0 150px;
+  font-weight: unset;
+  border: 1px solid #3500D4;
+  transform: matrix(0.89, 0, -0.5, 1, 0, 0);
+}
+main .submit-modal .modal-body {
+  padding: 25px 50px 0 50px;
+  background: #0C0C0C;
+  border: 1px solid #3500D4;
+  border-radius: 0px 21px 21px 0px;
+}
+main .submit-modal .modal-body input {
+  color: inherit;
+  font-family: inherit;
+  font-weight: bolder;
+  font-size: 17px;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0 10px 0 10px;
+  border: 1px solid #3500D4;
+  width: 100%;
+}
+main .submit-modal .modal-body input:focus {
+  outline: 0;
+  border: 2px solid #4f14ff;
+}
+main .submit-modal .modal-body .modal-listed-games {
+  border: 1px solid #3500D4;
+  margin: 10px 0 10px 0;
+  width: 100%;
+  height: 480px;
+}
+main .submit-modal .modal-footer {
+  text-align: center;
+  margin-top: 15px;
+}
+main .submit-modal .submit-game-button,
+main .submit-modal .close-modal-button {
+  font-family: inherit;
+  font-size: 17px;
+  color: inherit;
+  display: inline;
+  background-color: #3500D4;
+  border-width: 2px 7px 7px 1px;
+  border-style: solid;
+  border-color: #FFFFFF;
+  border-radius: 0px 21px 21px 21px;
+}
 
 @media (max-width: 768px) {
   body {
     background-position: center;
   }
-  .main-button {
+  body .add-game-button {
+    display: none;
+  }
+  body .add-game-button-mobile {
+    display: unset;
+  }
+  body .main-button {
+    padding: unset;
+    margin-bottom: 5px;
+  }
+  body .submit-modal {
+    top: 10px;
+    width: 90%;
+  }
+  body .submit-modal .modal-header {
     padding: unset;
   }
 }/*# sourceMappingURL=index.css.map */

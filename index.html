@@ -12,8 +12,10 @@
         <section>
             <div class="avatar"></div>
             <button class="main-button">View Owned Games</button>
+            <button class="add-game-button-mobile">Submit Game Suggestion</button>
             <div class="card">
                 <h3 class="card-header">Suggested Games:</h3>
+                <button class="add-game-button">+</button>
                 <div class="card-body">
                     <!-- Loop card items -->
                     <div class="card-item">
@@ -39,6 +41,32 @@
                 <div class="card-footer">Games Completed: 21</div>
             </div>
         </section>
-    </main>     
+        <section class="submit-modal">
+            <h2 class="modal-header">Suggest a game</h2>
+            <div class="modal-body">
+                <input type="text" placeholder="Search a game...">
+                <div class="modal-listed-games"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="submit-game-button">Submit Game Suggestion</button>
+                <button class="close-modal-button">Close</button></div>
+        </section>
+    </main>   
+    <script>
+        let modalElement = document.querySelector(".submit-modal");
+        let openModalButton = document.querySelector(".add-game-button");
+        let openModalButtonMobile = document.querySelector(".add-game-button-mobile");
+        let closeModalButton = document.querySelector(".close-modal-button");
+        
+        openModalButton.addEventListener("click", () => {
+            modalElement.style.visibility = "visible";
+        })   
+        openModalButtonMobile.addEventListener("click", () => {
+            modalElement.style.visibility = "visible";
+        })   
+        closeModalButton.addEventListener("click", () => {
+            modalElement.style.visibility = "hidden";
+        }) 
+    </script>  
 </body>
 </html>
