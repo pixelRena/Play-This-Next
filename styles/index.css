@@ -17,7 +17,7 @@ body {
   background-image: url(../assets/images/rave-video-low-polygon.gif);
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 
 button {
