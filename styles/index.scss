@@ -45,6 +45,7 @@ main {
 
     section {
         &:nth-child(2) {
+            width: 45vw;
             position: relative;
             z-index: 2;
         }
@@ -166,19 +167,18 @@ main {
             flex-direction: row;
             margin-bottom: 15px;
 
-            & div:nth-child(2) {
-                margin-top: -20px;
-            }
-
             .card-image-holder {
                 overflow: hidden;
                 width: 100px;
-                height: 100px;
+            }
+
+            .card-game-title { 
+                line-height: 20px; 
+                word-break: break-word;
+                width: 30vw;
             }
 
             img {
-                width: 100%;
-                height: 100%;
                 object-position: center;
                 object-fit: contain;
             }
@@ -247,7 +247,7 @@ main {
         }
         .modal-footer {
             text-align: center;
-            margin-top: 15px;
+            margin-top: 5px;
         }
 
         .submit-game-button,
@@ -269,6 +269,9 @@ main {
     body { background-position: center; }
 
     main {
+        section {
+            &:nth-child(2) { width: 90vw; }
+        }
         button { padding: 10px 15px 10px 15px !important; }
 
         .add-game-button { display: none; }
