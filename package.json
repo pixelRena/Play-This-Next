@@ -11,7 +11,7 @@
     "sass": "^1.57.1"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node ./server.js"
   },
   "name": "games-recommendations",
   "description": "<div align=\"center\">   <a href=\"https://github.com/pixelRena/rt-fitness\">     <img src=\"https://cdn.icon-icons.com/icons2/2992/PNG/512/twitch_logo_icon_187308.png\" alt=\"Logo\" width=\"80\">   </a>",
