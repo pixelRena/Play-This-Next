@@ -8,8 +8,8 @@
     "start": "node ./server.js"
   },
   "engines": {
-    "npm": "v18.12.1",
-    "node": "9.2.0"
+    "npm": "9.2.0",
+    "node": "18.12.1"
   },
   "repository": {
     "type": "git",
