@@ -123,6 +123,20 @@ main .card .add-game-button {
   font-family: monospace;
   font-weight: lighter;
 }
+main .card .refresh-button {
+  display: block;
+  margin: 0 auto;
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0);
+  color: inherit;
+  font-family: inherit;
+  margin-bottom: 15px;
+}
+main .card .refresh-button:hover {
+  background-color: white;
+  color: black;
+  font-weight: bolder;
+}
 main .card .card-header,
 main .card .card-body,
 main .card .card-footer {
@@ -131,6 +145,7 @@ main .card .card-footer {
 main .card .card-header {
   font-weight: unset;
   margin-top: unset;
+  margin-bottom: unset;
 }
 main .card .card-header::after {
   content: "";
@@ -200,7 +215,17 @@ main .submit-modal .modal-body {
   border: 1px solid #3500D4;
   border-radius: 0px 21px 21px 0px;
 }
-main .submit-modal .modal-body input {
+main .submit-modal .modal-body .search-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+main .submit-modal .modal-body .search-wrapper .search-btn {
+  color: inherit;
+  font-family: inherit;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #3500D4;
+}
+main .submit-modal .modal-body .search-wrapper input {
   color: inherit;
   font-family: inherit;
   font-weight: bolder;
@@ -210,7 +235,7 @@ main .submit-modal .modal-body input {
   border: 1px solid #3500D4;
   width: 100%;
 }
-main .submit-modal .modal-body input:focus {
+main .submit-modal .modal-body .search-wrapper input:focus {
   outline: 0;
   border: 2px solid #4f14ff;
 }
@@ -218,11 +243,45 @@ main .submit-modal .modal-body .modal-listed-games {
   border: 1px solid #3500D4;
   margin: 10px 0 10px 0;
   width: 100%;
+}
+main .submit-modal .modal-body .modal-listed-games .game-box {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
   height: 480px;
+  overflow: auto;
+}
+main .submit-modal .modal-body .modal-listed-games .game-box .card-item {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+main .submit-modal .modal-body .modal-listed-games .game-box .card-item .card-image-holder {
+  overflow: hidden;
+  margin-right: 15px;
+  width: 100px;
+}
+main .submit-modal .modal-body .modal-listed-games .game-box .card-item .card-game-title {
+  line-height: 20px;
+  word-break: break-word;
+  width: 30vw;
+}
+main .submit-modal .modal-body .modal-listed-games .game-box .card-item img {
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+main .submit-modal .modal-body .modal-listed-games .game-box .card-item .card-extra-information {
+  font-size: 17px;
 }
 main .submit-modal .modal-footer {
   text-align: center;
   margin-top: 5px;
+}
+main .submit-modal .submit-game-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 main .submit-modal .submit-game-button,
 main .submit-modal .close-modal-button {

@@ -18,6 +18,7 @@
             <div class="card">
                 <h3 class="card-header">Suggested Games:</h3>
                 <button class="add-game-button">+</button>
+                <button class="refresh-button">Refresh</button>
                 <div class="card-body">
                     <!-- Loop card items -->
                 </div>
@@ -28,11 +29,15 @@
             <div class="submit-modal">
                 <h2 class="modal-header">Suggest a game</h2>
                 <div class="modal-body">
-                    <input type="text" placeholder="Search a game...">
-                    <div class="modal-listed-games"></div>
+                    <div class="search-wrapper"><input class="search-field" type="text" placeholder="Search a game..."><button class="search-btn">Search</button></div>
+                    <div class="modal-listed-games">
+                        <div class="game-box">
+
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="submit-game-button">Submit Game Suggestion</button>
+                    <button class="submit-game-button" disabled onclick="submitHandler()">Submit Game Suggestion</button>
                     <button class="close-modal-button">Close</button></div>
             </div>
         </section>

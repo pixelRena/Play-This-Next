@@ -135,6 +135,22 @@ main {
             font-weight: lighter;
         }
 
+        .refresh-button {
+            display: block;
+            margin: 0 auto;
+            border: 1px solid white;
+            background-color: rgba(0,0,0,0); 
+            color: inherit; 
+            font-family: inherit;
+            margin-bottom: 15px;
+
+            &:hover { 
+                background-color: white; 
+                color: black; 
+                font-weight: bolder;
+            }
+        }
+
         .card-header,
         .card-body,
         .card-footer {
@@ -145,6 +161,7 @@ main {
         .card-header {
             font-weight: unset;
             margin-top: unset;
+            margin-bottom: unset;
 
             &::after {
                 content: "";
@@ -222,19 +239,31 @@ main {
             border: 1px solid $primary-color;
             border-radius: $custom-border-box;
 
-            input {
-                color: inherit;
-                font-family: inherit;
-                font-weight: bolder;
-                font-size: 17px;
-                background-color: rgba(0,0,0,0);
-                padding: 0 10px 0 10px;
-                border: 1px solid $primary-color;
-                width: 100%;
+            .search-wrapper {
+                display: flex;
+                flex-direction: row;
 
-                &:focus {   
-                    outline: 0;
-                    border: 2px solid #4f14ff;
+                .search-btn {
+                    color: inherit;
+                    font-family: inherit;
+                    background-color: rgba(0,0,0,0);
+                    border: 1px solid $primary-color;
+                }
+
+                input {
+                    color: inherit;
+                    font-family: inherit;
+                    font-weight: bolder;
+                    font-size: 17px;
+                    background-color: rgba(0,0,0,0);
+                    padding: 0 10px 0 10px;
+                    border: 1px solid $primary-color;
+                    width: 100%;
+
+                    &:focus {   
+                        outline: 0;
+                        border: 2px solid #4f14ff;
+                    }
                 }
             }
 
@@ -242,12 +271,52 @@ main {
                 border: 1px solid $primary-color;
                 margin: 10px 0 10px 0;
                 width: 100%;
-                height: 480px;
+
+                .game-box {
+                    padding: 15px;
+                    display: flex;
+                    flex-direction: column;
+                    height: 480px;
+                    overflow: auto;
+
+                    .card-item {
+                        display: flex;
+                        flex-direction: row;
+                        margin-bottom: 15px;
+            
+                        .card-image-holder {
+                            overflow: hidden;
+                            margin-right: 15px;;
+                            width: 100px;
+                        }
+            
+                        .card-game-title { 
+                            line-height: 20px; 
+                            word-break: break-word;
+                            width: 30vw;
+                        }
+            
+                        img {
+                            object-position: center;
+                            object-fit: contain;
+                        }
+            
+                        .card-extra-information { font-size: 17px; }
+                    }
+                }
             }
         }
+        
         .modal-footer {
             text-align: center;
             margin-top: 5px;
+        }
+
+        .submit-game-button {
+            &:disabled { 
+                opacity: 0.5; 
+                cursor: not-allowed;
+            }
         }
 
         .submit-game-button,

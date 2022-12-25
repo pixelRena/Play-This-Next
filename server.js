@@ -15,6 +15,7 @@ firebase.initializeApp({
 
 const db = firebase.firestore();
 const steamDB = db.collection("steam");
+const suggestedDB = db.collection("suggested");
 
 const app = express();
 app.use(express.static(staticPath));
@@ -54,6 +55,48 @@ app.post('/seed-steam-games', async (req,res) => {
     })
     
     await steamDB.get()
+    .then((snapshot) => {
+        snapshot.forEach(snap => gamesInDB.push(snap.data()))
+    });
+
+    res.send(gamesInDB);
+});
+
+app.get('/search-games', async (req,res) => {
+    const { term } = req.query;
+    try {
+        const {data} = await axios.get(`https://api.rawg.io/api/games?search=${term}&key=${process.env.RAWG_API_KEY}`, { headers: { "Accept-Encoding": "gzip,deflate,compress" } })
+        let dataReceived = data.results;
+        let dataArr = [];
+        dataReceived.map(({name, released, background_image}) => dataArr.push({"name":name, "released":released,"image":background_image}));
+        res.send(dataArr);
+    } catch(error) { res.send(error) }
+});
+
+app.get('/suggested-games-collection', async(req,res) => {
+    let gamesInDB = [];
+
+    await suggestedDB.get()
+    .then((snapshot) => {
+        snapshot.forEach(snap => gamesInDB.push(snap.data()))
+    });
+    
+    res.send(gamesInDB);
+});
+
+app.post('/add-suggested-game', async (req,res) => {
+    const { suggestedGames } = req.body;
+    let gamesInDB = [];
+
+    suggestedGames.map(({name, image}) => {    
+        suggestedDB.doc(name).set({
+            username: "N/A",
+            name,
+            image,
+        });
+    });
+
+    await suggestedDB.get()
     .then((snapshot) => {
         snapshot.forEach(snap => gamesInDB.push(snap.data()))
     });
