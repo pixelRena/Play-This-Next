@@ -11,10 +11,10 @@ let staticPath = path.join(__dirname, ".");
 // var serviceAccount = require("./firebaseKey.json");
 firebase.initializeApp({
   credential: firebase.credential.cert({
-    "project_id": process.env.FIREBASE_PROJECT_ID,
-    "client_email": process.env.FIREBASE_CLIENT_EMAIL,
-    "private_key": process.env.FIREBASE_PRIVATE_KEY,
-    "private_key_id": process.env.FIREBASE_PRIVATE_KEY_ID,
+    "projectId": process.env.FIREBASE_PROJECT_ID,
+    "clientEmail": process.env.FIREBASE_CLIENT_EMAIL,
+    "privateKey": process.env.FIREBASE_PRIVATE_KEY,
+    "privateKeyId": process.env.FIREBASE_PRIVATE_KEY_ID,
     "token_uri":"https://oauth2.googleapis.com/token"
     })
 });
