@@ -41,6 +41,7 @@ main {
   height: 100%;
 }
 main section:nth-child(2) {
+  width: 45vw;
   position: relative;
   z-index: 2;
 }
@@ -149,17 +150,16 @@ main .card .card-item {
   flex-direction: row;
   margin-bottom: 15px;
 }
-main .card .card-item div:nth-child(2) {
-  margin-top: -20px;
-}
 main .card .card-item .card-image-holder {
   overflow: hidden;
   width: 100px;
-  height: 100px;
+}
+main .card .card-item .card-game-title {
+  line-height: 20px;
+  word-break: break-word;
+  width: 30vw;
 }
 main .card .card-item img {
-  width: 100%;
-  height: 100%;
   -o-object-position: center;
      object-position: center;
   -o-object-fit: contain;
@@ -222,7 +222,7 @@ main .submit-modal .modal-body .modal-listed-games {
 }
 main .submit-modal .modal-footer {
   text-align: center;
-  margin-top: 15px;
+  margin-top: 5px;
 }
 main .submit-modal .submit-game-button,
 main .submit-modal .close-modal-button {
@@ -240,6 +240,9 @@ main .submit-modal .close-modal-button {
 @media (max-width: 768px) {
   body {
     background-position: center;
+  }
+  main section:nth-child(2) {
+    width: 90vw;
   }
   main button {
     padding: 10px 15px 10px 15px !important;

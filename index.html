@@ -20,27 +20,8 @@
                 <button class="add-game-button">+</button>
                 <div class="card-body">
                     <!-- Loop card items -->
-                    <div class="card-item">
-                        <!-- Column -->
-                        <div class="card-image-holder"><img src="https://cdromance.com/wp-content/uploads/2018/07/19468_front.jpg" alt="game-cover"></div>
-                        <!-- Column -->
-                        <div>
-                            <div class="card-game-title">Viewtiful Joe</div>
-                            <div class="card-extra-information">By: CallMeJay360</div>
-                        </div>
-                    </div>
-                    <!-- Loop card items -->
-                    <div class="card-item">
-                        <!-- Column -->
-                        <div class="card-image-holder"><img src="https://static-cdn.jtvnw.net/ttv-boxart/195053862_IGDB-285x380.jpg" alt="game-cover"></div>
-                        <!-- Column -->
-                        <div>
-                            <div class="card-game-title">Resident Evil 2</div>
-                            <div class="card-extra-information">By: N/A</div>
-                        </div>
-                    </div>
                 </div>
-                <div class="card-footer">Games Completed: 21</div>
+                <div class="card-footer"></div>
             </div>
         </section>
         <section class="modal-section">
@@ -55,22 +36,8 @@
                     <button class="close-modal-button">Close</button></div>
             </div>
         </section>
-    </main>   
-    <script>
-        let modalElement = document.querySelector(".modal-section");
-        let openModalButton = document.querySelector(".add-game-button");
-        let openModalButtonMobile = document.querySelector(".add-game-button-mobile");
-        let closeModalButton = document.querySelector(".close-modal-button");
-        
-        openModalButton.addEventListener("click", () => {
-            modalElement.style.display = "block";
-        })   
-        openModalButtonMobile.addEventListener("click", () => {
-            modalElement.style.display = "block";
-        })   
-        closeModalButton.addEventListener("click", () => {
-            modalElement.style.display = "none";
-        }) 
-    </script>  
+    </main>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="./javascript/index.js"></script>
 </body>
 </html>
