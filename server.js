@@ -106,4 +106,4 @@ app.post('/add-suggested-game', async (req,res) => {
 
 app.use('/', (req,res) => res.sendFile(path.join(staticPath, "index.html")));
 
-app.listen(3000, () => { console.log("listening on port.. 3000")});
+app.listen(3000 || process.env.PORT, () => { console.log("listening on port.. 3000")});
