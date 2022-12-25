@@ -8,9 +8,14 @@ dotenv.config();
 const path = require('path');
 let staticPath = path.join(__dirname, ".");
 
-var serviceAccount = require(process.env.FIREBASE_KEY);
+// var serviceAccount = require("./firebaseKey.json");
 firebase.initializeApp({
-  credential: firebase.credential.cert(serviceAccount)
+  credential: firebase.credential.cert({
+    "project_id": process.env.FIREBASE_PROJECT_ID,
+    "client_email": process.env.FIREBASE_CLIENT_EMAIL,
+    "private_key": process.env.FIREBASE_PRIVATE_KEY,
+    "token_uri":"https://oauth2.googleapis.com/token"
+    })
 });
 
 const db = firebase.firestore();
