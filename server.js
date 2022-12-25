@@ -8,7 +8,7 @@ dotenv.config();
 const path = require('path');
 let staticPath = path.join(__dirname, ".");
 
-var serviceAccount = require("./firebaseKey.json");
+// var serviceAccount = require("./firebaseKey.json");
 firebase.initializeApp({
   credential: firebase.credential.cert({
     "projectId": process.env.FIREBASE_PROJECT_ID,
