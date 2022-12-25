@@ -1,23 +1,12 @@
 {
-  "engines": {
-    "node": "18.12.1",
-    "npm": "9.2.0"
-  }, "dependencies": {
-    "axios": "^1.2.1",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "firebase-admin": "^11.4.1",
-    "path": "^0.12.7",
-    "sass": "^1.57.1"
-  },
-  "scripts": {
-    "start": "node ./server.js"
-  },
   "name": "games-recommendations",
-  "description": "<div align=\"center\">   <a href=\"https://github.com/pixelRena/rt-fitness\">     <img src=\"https://cdn.icon-icons.com/icons2/2992/PNG/512/twitch_logo_icon_187308.png\" alt=\"Logo\" width=\"80\">   </a>",
   "version": "1.0.0",
+  "description": "<div align=\"center\">   <a href=\"https://github.com/pixelRena/rt-fitness\">     <img src=\"https://cdn.icon-icons.com/icons2/2992/PNG/512/twitch_logo_icon_187308.png\" alt=\"Logo\" width=\"80\">   </a>",
   "main": "server.js",
-  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pixelRena/games-recommendations.git"
@@ -27,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/pixelRena/games-recommendations/issues"
   },
-  "homepage": "https://github.com/pixelRena/games-recommendations#readme"
+  "homepage": "https://github.com/pixelRena/games-recommendations#readme",
+  "dependencies": {
+    "axios": "^1.2.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "firebase-admin": "^11.4.1",
+    "path": "^0.12.7",
+    "sass": "^1.57.1"
+  }
 }
