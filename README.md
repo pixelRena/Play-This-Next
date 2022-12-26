@@ -7,9 +7,14 @@
   <p align="center">
     This is an application strictly to allow users/followers from my channel to suggest games to me and view games that I own through steam.
     <br />
-    <strike href="#">View Demo</strike>
+    <a href="https://serenuy-games.herokuapp.com/">View Demo</a>
     ·
     <a href="https://github.com/pixelRena/games-recommendations/issues">Report Bug</a>
   </p>
   
 </div>
+
+## WIP Functionalities:
+- Add searchbar to owned games
+- Add notification (not alert) when games added successfully
+- Add another section for console games

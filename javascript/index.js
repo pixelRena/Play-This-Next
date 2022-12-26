@@ -30,6 +30,7 @@ const updateGamesList = async () => {
         createDocument();
     } catch(error) { console.log(error) }
 
+    // Function creates documents inside of firebase
     const createDocument = async () => {
         try {
             let res = await axios.post('/seed-steam-games', {
@@ -42,19 +43,18 @@ const updateGamesList = async () => {
 
 const fetchGamesList = async () => {
     try {
+        // Fetching collections from firebase
         let res = await axios.get('/steam-games-collection');
         ownedGamesJson = res.data;
 
         let suggestedRes = await axios.get('/suggested-games-collection');
         suggestedGamesJson = suggestedRes.data;
+
+        changeSlide();
     }  catch(error) { console.log(error) }
 };
 
-const refreshHandler = () => {
-    cardElement.contentWindow.location.reload(true);
-};
-
-// Flips from owned to suggested games
+// Flips from owned to suggested games & triggers mapping
 const changeSlide = () => {
     if (currentSide === 1) {
         cardElement.innerHTML = '';
@@ -96,7 +96,7 @@ const changeSlide = () => {
             `;
         });
     }
-}
+};
 
 // const dat = [
 //   {
@@ -201,6 +201,8 @@ const changeSlide = () => {
 //   }
 // ]
 
+
+/* Handlers */
 const changeHandler = (name, image, i) => {
     let quantityButton = document.querySelectorAll(".card-add-btn")[i];
     if (quantityButton.style.backgroundColor !== "white") {
@@ -216,23 +218,42 @@ const changeHandler = (name, image, i) => {
     }
 
     submitGameButton.disabled = suggestedGames.length ? false : true;
-}
-
+};
 const submitHandler = async () => {
-    try {
-        let res = await axios.post("/add-suggested-game", {suggestedGames});
-        suggestedGamesJson = res.data;
-        closeModalButton.click();
-        changeSlide();
-        
-    } catch(error) { console.log(error) }
-    
-    searchFieldElement.value = "";
-    gameBoxField.innerHTML = "";
-    submitGameButton.disabled = true;
-    setTimeout(() => {suggestedGames = []}, 1000);
-}
+    var username;
 
+    const addGameHandler = async () => {
+        try {
+            let res = await axios.post("/add-suggested-game", {suggestedGames, username});
+            suggestedGamesJson = res.data;
+            closeModalButton.click();
+            currentSide = 1;
+            changeSlide();
+            
+        } catch(error) { console.log(error) }
+        
+        searchFieldElement.value = "";
+        gameBoxField.innerHTML = "";
+        submitGameButton.disabled = true;
+        alert("Games added successfully. If they don't appear, press the refresh button.");
+        setTimeout(() => {suggestedGames = []}, 500);
+    }
+
+    if(localStorage.getItem("username-serenuy-games-ttv")) {
+        username = localStorage.getItem("username-serenuy-games-ttv");
+        addGameHandler();
+    } else {
+        username = prompt("Enter your twitch username for credit: ");
+        localStorage.setItem("username-serenuy-games-ttv", username);
+        addGameHandler();
+    }
+};
+
+const refreshHandler = () => {
+    cardElement.contentWindow.location.reload(true);
+};
+
+// Event Listeners
 changeSideButton.addEventListener("click", () => {
     currentSide = (currentSide === 1 ? 2: 1);
     changeSlide();
@@ -269,6 +290,3 @@ searchButton.addEventListener("click", async () => {
 });
 
 fetchGamesList();
-setTimeout(() => {
-    changeSlide() 
-}, 1000);
