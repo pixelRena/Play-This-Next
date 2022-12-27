@@ -18,4 +18,4 @@
 - Add searchbar to owned games
 - Add notification (not alert) when games added successfully
 - Add another section for console games
-- Fix only one game appearing after adding multiple games
+- Restructure server functions
