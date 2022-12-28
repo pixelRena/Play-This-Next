@@ -135,14 +135,18 @@ main {
             font-weight: lighter;
         }
 
-        .refresh-button {
-            display: block;
+        .card-search-input {
+            display: none;
             margin: 0 auto;
+            width: 90%;
             border: 1px solid white;
             background-color: rgba(0,0,0,0); 
             color: inherit; 
             font-family: inherit;
+            font-weight: bolder;
             margin-bottom: 15px;
+
+            &:focus { outline: none !important; }
 
             &:hover { 
                 background-color: white; 

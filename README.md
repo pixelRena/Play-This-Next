@@ -15,7 +15,6 @@
 </div>
 
 ### WIP Functionalities:
-- Add searchbar to owned games
 - Add notification (not alert) when games added successfully
 - Add another section for console games
 - Restructure server functions

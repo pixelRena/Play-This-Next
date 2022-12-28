@@ -1,4 +1,5 @@
 const mapSuggestedGames = () => {
+    cardSearchField.style.display = "none";
     suggestedGamesJson.map(({image, username, name}) => {
         cardElement.innerHTML += `
                 <div class="card-item">
@@ -16,21 +17,42 @@ const mapSuggestedGames = () => {
     });
 };
 
-const mapOwnedGames = () => {
-    ownedGamesJson.map(({name, image}) => {
-        cardElement.innerHTML += `
-                <div class="card-item">
-                    <!-- Column -->
-                    <div class="card-image-holder">
-                        <img src=${image} alt="game-cover" height="100%" width="50">
+const mapOwnedGames = (filter) => {
+    cardSearchField.style.display = "block";
+    if(!filter) {
+        ownedGamesJson.map(({name, image}) => {
+            cardElement.innerHTML += `
+                    <div class="card-item">
+                        <!-- Column -->
+                        <div class="card-image-holder">
+                            <img src=${image} alt="game-cover" height="100%" width="50">
+                        </div>
+                        <!-- Column -->
+                        <div>
+                            <div class="card-game-title">${name}</div>
+                        </div>
                     </div>
-                    <!-- Column -->
-                    <div>
-                        <div class="card-game-title">${name}</div>
+            `;
+        });
+    } else {
+        cardElement.innerHTML = '';
+        let searchGamesJson = ownedGamesJson.filter(item => (item.name.toLowerCase()).includes(cardSearchField.value.toLowerCase()));
+        searchGamesJson.map(({name, image}) => {
+            cardElement.innerHTML += `
+                    <div class="card-item">
+                        <!-- Column -->
+                        <div class="card-image-holder">
+                            <img src=${image} alt="game-cover" height="100%" width="50">
+                        </div>
+                        <!-- Column -->
+                        <div>
+                            <div class="card-game-title">${name}</div>
+                        </div>
                     </div>
-                </div>
-        `;
-    });
+            `;
+        });
+    }
+
 };
 
 // Flips from owned to suggested games & triggers mapping
@@ -82,10 +104,6 @@ const onSubmitHandler = () => {
     }
 };
 
-const refreshHandler = () => {
-    cardElement.contentWindow.location.reload(true);
-};
-
 // Event Listeners
 cardFlipperButton.addEventListener("click", () => {
     currentCardSide = (currentCardSide === 1 ? 2: 1);
@@ -94,7 +112,6 @@ cardFlipperButton.addEventListener("click", () => {
 openModalButton.addEventListener("click", () => modalElement.style.display = "block");   
 openModalButtonMobile.addEventListener("click", () => modalElement.style.display = "block")
 closeModalButton.addEventListener("click", () => modalElement.style.display = "none");
-refreshButton.addEventListener("click", () => window.location.reload());
 searchButton.addEventListener("click", async () => {
     gameBoxField.innerHTML = '';
     try {

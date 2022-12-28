@@ -123,16 +123,21 @@ main .card .add-game-button {
   font-family: monospace;
   font-weight: lighter;
 }
-main .card .refresh-button {
-  display: block;
+main .card .card-search-input {
+  display: none;
   margin: 0 auto;
+  width: 90%;
   border: 1px solid white;
   background-color: rgba(0, 0, 0, 0);
   color: inherit;
   font-family: inherit;
+  font-weight: bolder;
   margin-bottom: 15px;
 }
-main .card .refresh-button:hover {
+main .card .card-search-input:focus {
+  outline: none !important;
+}
+main .card .card-search-input:hover {
   background-color: white;
   color: black;
   font-weight: bolder;
