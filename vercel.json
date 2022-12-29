@@ -1,8 +1,10 @@
 {
     "builds": [
         {
-            "src": "./index.js",
+            "src": "./server.js",
             "use": "@now/node"
+        },{
+            "src": "./styles"
         }
     ],
     "routes": [
