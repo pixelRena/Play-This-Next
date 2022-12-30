@@ -1,3 +1,14 @@
+const moveItemInArray = (arr, oldIndex, newIndex) => {
+    if (newIndex >= arr.length) {
+      let i = newIndex - arr.length + 1;
+      while (i--) {
+        arr.push(undefined);
+      }
+    }
+    arr.splice(newIndex, 0, arr.splice(oldIndex, 1)[0]);
+    suggestedGamesJson = arr;
+};
+
 // Fetches steam games & suggested games from firebase
 const getGames = async () => {
     try {
@@ -6,8 +17,14 @@ const getGames = async () => {
 
         let suggestedRes = await axios.get('/suggested-games-collection');
         suggestedGamesJson = suggestedRes.data;
-
+        
+        // Check which game will be played next
+        // Rearrange suggested games based on nextIndexes
+        suggestedGamesJson.map((item, i) => {
+            if(item.next) moveItemInArray(suggestedGamesJson, i, 0);
+        });
         cardFlipper();
+
     }  catch(error) { console.log(error) }
 };
 
