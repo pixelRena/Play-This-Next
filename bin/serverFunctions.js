@@ -13,14 +13,6 @@ const getGames = async () => {
 
 // Fetches my steam games from steam api & updates firebase collection/documents
 const setGames = async () => {
-    try {
-        let res  = await axios.get('/steam-games');
-
-        gameCount = res.data.game_count;
-        gamesList = res.data.games;
-        createDocument();
-    } catch(error) { console.log(error) }
-
     // Function creates documents inside of firebase collection
     const createDocument = async () => {
         try {
@@ -30,6 +22,14 @@ const setGames = async () => {
             ownedGamesJson = res.data;
         } catch(error) { console.log(error) }
     };
+
+    try {
+        let res  = await axios.get('/steam-games');
+
+        gameCount = res.data.game_count;
+        gamesList = res.data.games;
+        createDocument();
+    } catch(error) { console.log(error) }
 };
 
 const setSuggestedGames = async (username) => {
