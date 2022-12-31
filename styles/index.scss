@@ -271,6 +271,20 @@ main {
                 }
             }
 
+            .filter-games-btn {
+                color: inherit;
+                font-family: inherit;
+                background-color: rgba(0,0,0,0);
+                border: 1px solid $primary-color;
+
+                &:hover,
+                &.selected { 
+                    background-color: white; 
+                    color: black;
+                    font-weight: bolder;
+                }
+            }
+
             .modal-listed-games {
                 border: 1px solid $primary-color;
                 margin: 10px 0 10px 0;

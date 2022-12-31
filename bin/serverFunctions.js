@@ -17,7 +17,7 @@ const getGames = async () => {
 
         let suggestedRes = await axios.get('/suggested-games-collection');
         suggestedGamesJson = suggestedRes.data;
-        
+
         // Check which game will be played next
         // Rearrange suggested games based on nextIndexes
         suggestedGamesJson.map((item, i) => {
@@ -58,7 +58,7 @@ const setSuggestedGames = async (username) => {
         searchFieldElement.value = "";
         gameBoxField.innerHTML = "";
         submitGameButton.disabled = true;
-        alert("Games added successfully.");
+        alert("Game(s) added successfully.");
         cardFlipper();
         
     } catch(error) { console.log(error) }

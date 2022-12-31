@@ -73,6 +73,44 @@ const cardFlipper = () => {
     }
 };
 
+// View Selected Games
+const viewPendingGamesToAdd = () => {
+    filterButton.classList.toggle("selected");
+    if(filterButton.classList.contains("selected")){
+        // display pending added games
+        gameBoxField.innerHTML = "";
+        if(suggestedGames.length !== 0) {
+            suggestedGames.map(({name,image}, i) => {
+                gameBoxField.innerHTML += `            
+                <div class="card-item">
+                    <!-- Column -->
+                    <div class="card-image-holder">
+                        <img src=${image} alt="game-cover" height="100%" width="100%">
+                    </div>
+                    <!-- Column -->
+                    <div>
+                        <div class="card-game-title">${name}</div>
+                        <div class="card-add-btn" style="margin-top: 5px; color:black; background-color: white; font-weight: bolder; cursor:pointer; width: 7vw; font-size: 15px; text-align:center; border: 1px solid white;"
+                        onclick="onChangeHandler('${name}','${image}', ${i})">Remove</div>
+                    </div>
+                </div>
+                `
+            });
+        } else {
+            gameBoxField.innerHTML = `
+                <div class="card-item">
+                    <div>
+                        <div class="card-game-title">When you add a game you want to suggest, they get saved here until you submit the suggestion.</div>
+                    </div>
+                </div>
+            `;
+        }
+    } else {
+        // resume search
+        searchButton.click();
+    }
+};
+
 /* Handlers */
 const onChangeHandler = (name, image, index) => {
     let quantityButton = document.querySelectorAll(".card-add-btn")[index];
@@ -114,6 +152,7 @@ openModalButton.addEventListener("click", () => modalElement.style.display = "bl
 openModalButtonMobile.addEventListener("click", () => modalElement.style.display = "block")
 closeModalButton.addEventListener("click", () => modalElement.style.display = "none");
 searchButton.addEventListener("click", async () => {
+    if(filterButton.classList.contains("selected")) filterButton.classList.toggle("selected");
     gameBoxField.innerHTML = '';
     try {
         let res = await axios.get(`/search-games?term=${searchFieldElement.value}`);

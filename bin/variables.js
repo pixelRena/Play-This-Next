@@ -11,6 +11,7 @@ const searchButton = document.querySelector(".search-btn");
 const submitGameButton = document.querySelector(".submit-game-button");
 const gameBoxField = document.querySelector('.game-box');
 const cardSearchField = document.querySelector(".card-search-input");
+const filterButton = document.querySelector(".filter-games-btn");
 let currentCardSide = 1;
 var gameCount; 
 var gamesList;
