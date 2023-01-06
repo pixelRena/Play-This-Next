@@ -5,7 +5,7 @@
 
 <h2 align="center">Recommend Games</h2>
   <p align="center">
-    This is an application strictly to allow users/followers from my channel to suggest games and view games that are owned through steam.
+    This is an application strictly to allow users/followers from twitch to suggest games and view games that are owned through steam.
     <br />
     <a href="https://serenuy-games.herokuapp.com/">View Demo</a>
     ·
