@@ -14,7 +14,10 @@ const mapSuggestedGames = () => {
                     </div>
                 </div>
         `;
-        if(next) document.querySelectorAll(".card-item")[index].style.border = "1px solid #3500D4";
+        if(next) {
+            document.querySelectorAll(".card-item")[index].style.border = "1px solid #3500D4";
+            document.querySelectorAll(".card-item")[index].style.padding = "10px";
+        }
     });
 };
 

@@ -8,16 +8,16 @@ dotenv.config();
 const path = require('path');
 let staticPath = path.join(__dirname, ".");
 
-// var serviceAccount = require("./config/firebaseKey.json");
+var serviceAccount = require("./config/firebaseKey.json");
 firebase.initializeApp({
-  credential: firebase.credential.cert(
-    {
-    "projectId": process.env.FIREBASE_PROJECT_ID,
-    "clientEmail": process.env.FIREBASE_CLIENT_EMAIL,
-    "privateKey": JSON.parse(process.env.FIREBASE_PRIVATE_KEY),
-    "privateKeyId": process.env.FIREBASE_PRIVATE_KEY_ID,
-    "token_uri":"https://oauth2.googleapis.com/token"
-    }
+  credential: firebase.credential.cert(serviceAccount
+    // {
+    // "projectId": process.env.FIREBASE_PROJECT_ID,
+    // "clientEmail": process.env.FIREBASE_CLIENT_EMAIL,
+    // "privateKey": JSON.parse(process.env.FIREBASE_PRIVATE_KEY),
+    // "privateKeyId": process.env.FIREBASE_PRIVATE_KEY_ID,
+    // "token_uri":"https://oauth2.googleapis.com/token"
+    // }
     )
 });
 
@@ -114,4 +114,4 @@ app.post('/add-suggested-game', async (req,res) => {
 
 app.use('/', (req,res) => res.sendFile(path.join(staticPath, "index.html")));
 
-app.listen(process.env.PORT, () => { console.log("listening on port.."+process.env.PORT)});
+app.listen(process.env.PORT || 3000, () => { console.log("listening on port.."+process.env.PORT)});
