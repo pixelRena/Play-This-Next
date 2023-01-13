@@ -17,4 +17,3 @@
 ### WIP Functionalities:
 - Add notification (not alert) when games added successfully
 - Add another section for console games
-- Restructure server functions
