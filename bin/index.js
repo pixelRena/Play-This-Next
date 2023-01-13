@@ -1,24 +1,50 @@
-const mapSuggestedGames = () => {
-    cardSearchField.style.display = "none";
-    suggestedGamesJson.map(({image, username, name, next}, index) => {
-        cardElement.innerHTML += `
+const checkSearchArea = () => {
+    if(currentCardSide !== 1) {
+       mapOwnedGames('filter');
+    } else {
+        mapSuggestedGames('filter');
+    }
+};
+
+const mapSuggestedGames = (filter) => {
+    cardSearchField.placeholder = "Search suggested games..";
+    if(!filter) {
+        suggestedGamesJson.map(({image, username, name, next}, index) => {
+            cardElement.innerHTML += `
+                    <div class="card-item">
+                        <!-- Column -->
+                        <div class="card-image-holder" height="100" style="margin-right: 15px; background-image: url(${image}); background-size: cover; background-position: center;">     
+                        </div>
+                        <!-- Column -->
+                        <div>
+                            <div class="card-game-title">${name}</div>
+                            <div class="card-extra-information">Posted by: <strong><a href="https://www.twitch.tv/${username}" target="_blank">${username}</a></strong> ${next ? '<br/><strong class="playing-next">Playing Next</strong>':''}</div>
+                        </div>
+                    </div>
+            `;
+        });
+    } else {
+        cardElement.innerHTML = '';
+        let searchGamesJson = suggestedGamesJson.filter(item => (item.name.toLowerCase()).includes(cardSearchField.value.toLowerCase()));
+        searchGamesJson.map(({image, username, name, next}) => {
+                cardElement.innerHTML += `
                 <div class="card-item">
-                    <!-- Column -->
-                    <div class="card-image-holder" height="100" style="margin-right: 15px; background-image: url(${image}); background-size: cover; background-position: center;">
-                        
-                    </div>
-                    <!-- Column -->
-                    <div>
-                        <div class="card-game-title">${name}</div>
-                        <div class="card-extra-information">Posted by: <strong><a href="https://www.twitch.tv/${username}" target="_blank">${username}</a></strong> ${next ? '<br/><strong class="playing-next">Playing Next</strong>':''}</div>
-                    </div>
+                <!-- Column -->
+                <div class="card-image-holder" height="100" style="margin-right: 15px; background-image: url(${image}); background-size: cover; background-position: center;">     
                 </div>
-        `;
-    });
+                <!-- Column -->
+                <div>
+                    <div class="card-game-title">${name}</div>
+                    <div class="card-extra-information">Posted by: <strong><a href="https://www.twitch.tv/${username}" target="_blank">${username}</a></strong> ${next ? '<br/><strong class="playing-next">Playing Next</strong>':''}</div>
+                </div>
+                </div>
+            `;
+        });
+    }
 };
 
 const mapOwnedGames = (filter) => {
-    cardSearchField.style.display = "block";
+    cardSearchField.placeholder = "Search owned games..";
     if(!filter) {
         ownedGamesJson.map(({name, image}) => {
             cardElement.innerHTML += `

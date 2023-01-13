@@ -163,7 +163,7 @@ main .card .add-game-button {
   font-weight: lighter;
 }
 main .card .card-search-input {
-  display: none;
+  display: block;
   margin: 0 auto;
   width: 90%;
   border: 1px solid white;
