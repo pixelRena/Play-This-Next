@@ -8,16 +8,16 @@ dotenv.config();
 const path = require('path');
 let staticPath = path.join(__dirname, ".");
 
-var serviceAccount = require("./config/firebaseKey.json");
+// var serviceAccount = require("./config/firebaseKey.json");
 firebase.initializeApp({
-  credential: firebase.credential.cert(serviceAccount
-    // {
-    // "projectId": process.env.FIREBASE_PROJECT_ID,
-    // "clientEmail": process.env.FIREBASE_CLIENT_EMAIL,
-    // "privateKey": JSON.parse(process.env.FIREBASE_PRIVATE_KEY),
-    // "privateKeyId": process.env.FIREBASE_PRIVATE_KEY_ID,
-    // "token_uri":"https://oauth2.googleapis.com/token"
-    // }
+  credential: firebase.credential.cert(
+    {
+    "projectId": process.env.FIREBASE_PROJECT_ID,
+    "clientEmail": process.env.FIREBASE_CLIENT_EMAIL,
+    "privateKey": JSON.parse(process.env.FIREBASE_PRIVATE_KEY),
+    "privateKeyId": process.env.FIREBASE_PRIVATE_KEY_ID,
+    "token_uri":"https://oauth2.googleapis.com/token"
+    }
     )
 });
 
