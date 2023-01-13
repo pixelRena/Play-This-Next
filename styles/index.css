@@ -370,6 +370,10 @@ main .main-button {
   main .card {
     font-size: 13px;
   }
+  main .card .card-search-input {
+    border-radius: 0;
+    padding: 5px;
+  }
   main .card .card-header {
     margin-top: 10px;
   }
@@ -384,6 +388,13 @@ main .main-button {
   }
   main .submit-modal {
     width: 90%;
+  }
+  main .submit-modal .modal-body .search-wrapper input {
+    border-radius: 0;
+  }
+  main .submit-modal .modal-body .filter-games-btn {
+    margin-top: 5px;
+    width: 100%;
   }
   main .submit-modal .modal-header {
     padding: unset;
