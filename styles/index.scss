@@ -239,6 +239,8 @@ main {
             border-radius: 0px 0px 19px 19px;
             border: 1px solid $primary-color;
             border-width: 0px 0px 10px 0px;
+            padding-top: 5px;
+            padding-bottom: 5px;
         }
     }
 
@@ -380,6 +382,7 @@ main {
 }
 
 @media (max-width: 768px) {
+    * { font-weight: bold; }
     body { background-position: center; }
 
     main {
@@ -411,6 +414,10 @@ main {
             .card-item {
                 & div:nth-child(2) { margin-top: unset; }
                 .card-extra-information { font-size: unset; }
+                .card-game-title { 
+                    font-style: italic;
+                    width: 55vw;
+                }
             }
         }
 

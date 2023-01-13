@@ -228,6 +228,8 @@ main .card .card-footer {
   border-radius: 0px 0px 19px 19px;
   border: 1px solid #3500D4;
   border-width: 0px 0px 10px 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 main .submit-modal {
   position: relative;
@@ -348,6 +350,9 @@ main .submit-modal .close-modal-button {
 }
 
 @media (max-width: 768px) {
+  * {
+    font-weight: bold;
+  }
   body {
     background-position: center;
   }
@@ -385,6 +390,10 @@ main .main-button {
   }
   main .card .card-item .card-extra-information {
     font-size: unset;
+  }
+  main .card .card-item .card-game-title {
+    font-style: italic;
+    width: 55vw;
   }
   main .submit-modal {
     width: 90%;
