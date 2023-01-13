@@ -10,14 +10,10 @@ const mapSuggestedGames = () => {
                     <!-- Column -->
                     <div>
                         <div class="card-game-title">${name}</div>
-                        <div class="card-extra-information">Posted by: <strong><a href="https://www.twitch.tv/${username}" target="_blank">${username}</a></strong> ${next ? '<br/><strong>Playing Next</strong>':''}</div>
+                        <div class="card-extra-information">Posted by: <strong><a href="https://www.twitch.tv/${username}" target="_blank">${username}</a></strong> ${next ? '<br/><strong class="playing-next">Playing Next</strong>':''}</div>
                     </div>
                 </div>
         `;
-        if(next) {
-            document.querySelectorAll(".card-item")[index].style.border = "1px solid #3500D4";
-            document.querySelectorAll(".card-item")[index].style.padding = "10px";
-        }
     });
 };
 
