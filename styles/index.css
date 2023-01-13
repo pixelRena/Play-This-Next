@@ -207,7 +207,6 @@ main .card .card-body {
 main .card .card-item {
   display: flex;
   flex-direction: row;
-  height: 100px;
   margin-bottom: 30px;
 }
 main .card .card-item .card-image-holder {
