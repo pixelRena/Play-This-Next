@@ -215,7 +215,8 @@ main {
         .card-item {
             display: flex;
             flex-direction: row;
-            margin-bottom: 15px;
+            height: 100px;
+            margin-bottom: 30px;
 
             .card-image-holder {
                 overflow: hidden;

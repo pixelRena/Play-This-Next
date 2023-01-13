@@ -4,8 +4,8 @@ const mapSuggestedGames = () => {
         cardElement.innerHTML += `
                 <div class="card-item">
                     <!-- Column -->
-                    <div class="card-image-holder" height="100" style="margin-right: 15px;">
-                        <img src=${image} alt="game-cover" width="100%" height="100%">
+                    <div class="card-image-holder" height="100" style="margin-right: 15px; background-image: url(${image}); background-size: cover; background-position: center;">
+                        
                     </div>
                     <!-- Column -->
                     <div>
