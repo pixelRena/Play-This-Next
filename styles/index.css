@@ -388,4 +388,10 @@ main .main-button {
   main .submit-modal .modal-header {
     padding: unset;
   }
+  main .submit-modal .modal-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
 }/*# sourceMappingURL=index.css.map */

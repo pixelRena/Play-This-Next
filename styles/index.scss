@@ -413,6 +413,12 @@ main {
         .submit-modal {
             width: 90%;
             .modal-header { padding: unset; }
+            .modal-footer {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                margin-bottom: 10px;
+            }
         }
     }
 }
