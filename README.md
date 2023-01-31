@@ -7,7 +7,7 @@
   <p align="center">
     This is an application strictly to allow users/followers from twitch to suggest games and view games that are owned through steam.
     <br />
-    <a href="https://serenuy-games.herokuapp.com/">View Demo</a>
+    <a href="http://nuygames.xyz/">View Demo</a>
     ·
     <a href="https://github.com/pixelRena/games-recommendations/issues">Report Bug</a>
   </p>
