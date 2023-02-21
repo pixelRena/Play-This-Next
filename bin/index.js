@@ -18,7 +18,7 @@ const mapSuggestedGames = (filter) => {
                         <!-- Column -->
                         <div>
                             <div class="card-game-title">${name}</div>
-                            <div class="card-extra-information">Posted by: <strong><a href="https://www.twitch.tv/${username}" target="_blank">${username}</a></strong> ${next ? '<br/><strong class="playing-next">Playing Next</strong>':''}</div>
+                            <div class="card-extra-information">Posted by: <strong><a href="https://www.twitch.tv/${username}" target="_blank">${username}</a></strong> ${next === true ? '<br/><strong class="playing-next">Playing Next</strong>': next === "done" ? '<br/><strong class="playing-next">Completed</strong>' : ''}</div>
                         </div>
                     </div>
             `;
@@ -35,7 +35,7 @@ const mapSuggestedGames = (filter) => {
                 <!-- Column -->
                 <div>
                     <div class="card-game-title">${name}</div>
-                    <div class="card-extra-information">Posted by: <strong><a href="https://www.twitch.tv/${username}" target="_blank">${username}</a></strong> ${next ? '<br/><strong class="playing-next">Playing Next</strong>':''}</div>
+                    <div class="card-extra-information">Posted by: <strong><a href="https://www.twitch.tv/${username}" target="_blank">${username}</a></strong> ${next === true ? '<br/><strong class="playing-next">Playing Next</strong>': next === "done" ? '<br/><strong class="playing-next">Completed</strong>' : ''}</div>
                 </div>
                 </div>
             `;

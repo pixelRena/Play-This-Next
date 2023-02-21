@@ -28,7 +28,7 @@ const getGames = async () => {
     }  catch(error) { console.log(error) }
 };
 
-// Fetches my steam games from steam api & updates firebase collection/documents
+// Fetches steam games from steam api & updates firebase collection/documents
 const setGames = async () => {
     // Function creates documents inside of firebase collection
     const createDocument = async () => {
