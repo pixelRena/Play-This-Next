@@ -18,3 +18,4 @@
 - Add notification (not alert) when games added successfully
 - Add another section for console games
 - Loading symbol
+- Background Replacement
