@@ -20,3 +20,4 @@
 - Loading symbol
 - Background Replacement
 - Function to edit for approved/declined suggestions
+- Prevent duplications
