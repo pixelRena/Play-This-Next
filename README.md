@@ -19,3 +19,4 @@
 - Add another section for console games
 - Loading symbol
 - Background Replacement
+- Function to edit for approved/declined suggestions
