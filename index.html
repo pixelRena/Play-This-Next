@@ -6,8 +6,13 @@
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <meta name="author" content="Serena/pixelRena@github">
     <link href="./styles/index.css" rel="stylesheet">
+    <link href="./styles/particles.css" rel="stylesheet">
 </head>
 <body>
+    <!-- particles.js container --> 
+    <div id="particles-js"></div>
+
+    <!-- Main Content -->
     <main>
         <section><div class="background-overlay"></div></section>
         <section>
@@ -44,7 +49,14 @@
             </div>
         </section>
     </main>
+
+
+    <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> 
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+    <script src="./bin/particles.js"></script>
+    <!-- Axios library -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Functions -->
     <script src="./bin/variables.js"></script>
     <script src="./bin/serverFunctions.js"></script>
     <script src="./bin/index.js"></script>

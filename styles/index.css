@@ -3,12 +3,6 @@
   box-sizing: border-box;
 }
 
-@-webkit-keyframes shine {
-  100% {
-    transform: rotateZ(60deg) translate(1em, -20em);
-  }
-}
-
 @keyframes shine {
   100% {
     transform: rotateZ(60deg) translate(1em, -20em);
@@ -33,9 +27,6 @@ html, body {
 
 body {
   height: 100vh;
-  background-image: url(../assets/images/Abstract-95587.gif);
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 button {
@@ -52,7 +43,7 @@ button {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -370,7 +361,7 @@ main .submit-modal .close-modal-button {
     display: none;
   }
   main .add-game-button-mobile,
-main .main-button {
+  main .main-button {
     font-size: 15px;
     display: block;
     margin: 0 auto;

@@ -31,9 +31,6 @@ html, body {
 
 body {
     height: 100vh;
-    background-image: url(../assets/images/Abstract-95587.gif);
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 button { cursor: pointer; }
@@ -46,7 +43,7 @@ button { cursor: pointer; }
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.2);
     z-index: 1;
 }
 
