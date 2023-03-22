@@ -9,7 +9,7 @@ const checkSearchArea = () => {
 const mapSuggestedGames = (filter) => {
     cardSearchField.placeholder = "Search suggested games..";
     if(!filter) {
-        suggestedGamesJson.map(({image, username, name, next, completed, declined}, index) => {
+        suggestedGamesJson.map(({image, username, name, next, completed, declined}) => {
             cardElement.innerHTML += `
                     <div class="card-item">
                         <!-- Column -->
@@ -28,7 +28,7 @@ const mapSuggestedGames = (filter) => {
     } else {
         cardElement.innerHTML = '';
         let searchGamesJson = suggestedGamesJson.filter(item => (item.name.toLowerCase()).includes(cardSearchField.value.toLowerCase()));
-        searchGamesJson.map(({image, username, name, next}) => {
+        searchGamesJson.map(({image, username, name, next, completed, declined}) => {
                 cardElement.innerHTML += `
                 <div class="card-item">
                 <!-- Column -->
@@ -37,7 +37,9 @@ const mapSuggestedGames = (filter) => {
                 <!-- Column -->
                 <div>
                     <div class="card-game-title">${name}</div>
-                    <div class="card-extra-information">Posted by: <strong><a href="https://www.twitch.tv/${username}" target="_blank">${username}</a></strong> ${next ? '<br/><strong class="game-status-next">Playing Next</strong>': completed ? '<br/><strong class="game-status-completed">Completed</strong>' : 
+                    <div class="card-extra-information">Posted by: <strong><a href="https://www.twitch.tv/${username}" target="_blank">${username}</a></strong> 
+                    ${next ? '<br/><strong class="game-status-next">Playing Next</strong>': 
+                    completed ? '<br/><strong class="game-status-completed">Completed</strong>' : 
                     declined ? '<br/><strong class="game-status-declined">Declined</strong>' :
                     ''}</div>
                 </div>
