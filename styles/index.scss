@@ -3,6 +3,12 @@
 $primary-color: #3500D4;
 $secondary-color: #0C0C0C; 
 $custom-border-box: 0px 21px 21px 0px;
+$status-completed-color: rgb(91, 246, 74);
+$status-completed-background: #2b9a0057;
+$status-declined-color: rgb(245, 85, 85);
+$status-declined-background: #9a000057;
+$status-next-color: #ba00d4;
+$status-next-background: #a400bb47;
 
 * {
     box-sizing: border-box;
@@ -35,7 +41,22 @@ body {
 
 button { cursor: pointer; }
 
-.playing-next { color:rgb(91, 246, 74); }
+[class*="game-status"] {
+    padding: 0 5px;
+}
+
+.game-status-completed { 
+    background-color: $status-completed-background;
+    color: $status-completed-color;
+}
+.game-status-next { 
+    color: $status-next-color;
+    background-color: $status-next-background;
+}
+.game-status-declined { 
+    background-color: $status-declined-background;
+    color: $status-declined-color; 
+}
 
 .background-overlay {
     position: fixed;

@@ -9,7 +9,7 @@ const checkSearchArea = () => {
 const mapSuggestedGames = (filter) => {
     cardSearchField.placeholder = "Search suggested games..";
     if(!filter) {
-        suggestedGamesJson.map(({image, username, name, next}, index) => {
+        suggestedGamesJson.map(({image, username, name, next, completed, declined}, index) => {
             cardElement.innerHTML += `
                     <div class="card-item">
                         <!-- Column -->
@@ -18,7 +18,9 @@ const mapSuggestedGames = (filter) => {
                         <!-- Column -->
                         <div>
                             <div class="card-game-title">${name}</div>
-                            <div class="card-extra-information">Posted by: <strong><a href="https://www.twitch.tv/${username}" target="_blank">${username}</a></strong> ${next === true ? '<br/><strong class="playing-next">Playing Next</strong>': next === "done" ? '<br/><strong class="playing-next">Completed</strong>' : ''}</div>
+                            <div class="card-extra-information">Posted by: <strong><a href="https://www.twitch.tv/${username}" target="_blank">${username}</a></strong> ${next ? '<br/><strong class="game-status-next">Playing Next</strong>': completed ? '<br/><strong class="game-status-completed">Completed</strong>' : 
+                            declined ? '<br/><strong class="game-status-declined">Declined</strong>' :
+                            ''}</div>
                         </div>
                     </div>
             `;
@@ -35,7 +37,9 @@ const mapSuggestedGames = (filter) => {
                 <!-- Column -->
                 <div>
                     <div class="card-game-title">${name}</div>
-                    <div class="card-extra-information">Posted by: <strong><a href="https://www.twitch.tv/${username}" target="_blank">${username}</a></strong> ${next === true ? '<br/><strong class="playing-next">Playing Next</strong>': next === "done" ? '<br/><strong class="playing-next">Completed</strong>' : ''}</div>
+                    <div class="card-extra-information">Posted by: <strong><a href="https://www.twitch.tv/${username}" target="_blank">${username}</a></strong> ${next ? '<br/><strong class="game-status-next">Playing Next</strong>': completed ? '<br/><strong class="game-status-completed">Completed</strong>' : 
+                    declined ? '<br/><strong class="game-status-declined">Declined</strong>' :
+                    ''}</div>
                 </div>
                 </div>
             `;

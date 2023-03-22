@@ -33,8 +33,23 @@ button {
   cursor: pointer;
 }
 
-.playing-next {
+[class*=game-status] {
+  padding: 0 5px;
+}
+
+.game-status-completed {
+  background-color: rgba(43, 154, 0, 0.3411764706);
   color: rgb(91, 246, 74);
+}
+
+.game-status-next {
+  color: #ba00d4;
+  background-color: rgba(164, 0, 187, 0.2784313725);
+}
+
+.game-status-declined {
+  background-color: rgba(154, 0, 0, 0.3411764706);
+  color: rgb(245, 85, 85);
 }
 
 .background-overlay {
