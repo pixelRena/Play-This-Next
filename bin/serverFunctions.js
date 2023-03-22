@@ -21,7 +21,13 @@ const getGames = async () => {
         // Check which game will be played next
         // Rearrange suggested games based on nextIndexes
         suggestedGamesJson.map((item, i) => {
-            if(item.next) moveItemInArray(suggestedGamesJson, i, 0);
+            item.next ? 
+                moveItemInArray(suggestedGamesJson, i, 0) :
+                    item.declined ?
+                        moveItemInArray(suggestedGamesJson, i, 0) :
+                            item.completed ? 
+                                moveItemInArray(suggestedGamesJson, i, 0) : 
+                                    null;
         });
         cardFlipper();
 
