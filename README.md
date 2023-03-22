@@ -15,8 +15,7 @@
 </div>
 
 ### WIP Functionalities:
-- Add notification (not alert) when games added successfully
+- Add UI notification (not alert) when games added successfully
 - Add another section for console games
-- Loading symbol
-- Function to edit for approved/declined suggestions
-- Prevent duplications
+- Loading symbol (For rendering games, prevent loading all games)
+- Prevent duplications (Additional server-side validations)
