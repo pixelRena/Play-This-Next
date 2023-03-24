@@ -343,7 +343,7 @@ main {
                 }
             }
 
-            .filter-games-btn {
+            #filter-games-btn {
                 color: inherit;
                 font-family: inherit;
                 background-color: rgba(0,0,0,0);
@@ -475,7 +475,7 @@ main {
             width: 90%;
             .modal-body {
                 .search-wrapper input { border-radius: 0; }
-                .filter-games-btn { 
+                #filter-games-btn { 
                     margin-top: 5px; 
                     width: 100%;
                 }

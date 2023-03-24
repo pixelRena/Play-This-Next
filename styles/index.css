@@ -318,13 +318,13 @@ main .submit-modal .modal-body .search-wrapper input:focus {
   outline: 0;
   border: 1px solid #5f2aff;
 }
-main .submit-modal .modal-body .filter-games-btn {
+main .submit-modal .modal-body #filter-games-btn {
   color: inherit;
   font-family: inherit;
   background-color: rgba(0, 0, 0, 0);
   border: 1px solid #3500D4;
 }
-main .submit-modal .modal-body .filter-games-btn:hover, main .submit-modal .modal-body .filter-games-btn.selected {
+main .submit-modal .modal-body #filter-games-btn:hover, main .submit-modal .modal-body #filter-games-btn.selected {
   background-color: white;
   color: black;
   font-weight: bolder;
@@ -445,7 +445,7 @@ main .submit-modal .close-modal-button {
   main .submit-modal .modal-body .search-wrapper input {
     border-radius: 0;
   }
-  main .submit-modal .modal-body .filter-games-btn {
+  main .submit-modal .modal-body #filter-games-btn {
     margin-top: 5px;
     width: 100%;
   }
