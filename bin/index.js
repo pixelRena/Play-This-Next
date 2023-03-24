@@ -99,12 +99,14 @@ const cardFlipper = () => {
         cardHeaderElement.innerHTML = "Suggested Games:";
         cardFlipperButton.innerHTML = "View Owned Games";
         cardFooterElement.innerHTML = "Games Completed: -";
+        selectElementContainer.style.display = "unset";
         mapSuggestedGames();
     } else {
         cardHeaderElement.innerHTML = "Owned Games:";
         cardFlipperButton.innerHTML = "View Suggested Games";
         cardFooterElement.innerHTML = "Games Owned (Steam): "+ownedGamesJson.length;
         cardElement.innerHTML = '';
+        selectElementContainer.style.display = "none";
         mapOwnedGames();
     }
     cardSearchField.value = '';
