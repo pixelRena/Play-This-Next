@@ -1,14 +1,29 @@
+// Handles search input depedending on if the card is on the owned or suggested games section
+// True indicates there is a search value to be found
 const checkSearchArea = () => {
     if(currentCardSide !== 1) {
-       mapOwnedGames('filter');
+       mapOwnedGames(true);
     } else {
-        mapSuggestedGames('filter');
+        mapSuggestedGames(true);
     }
 };
 
-const mapSuggestedGames = (filter) => {
+const sortGames = (prop) => {
+    suggestedGamesJson.sort((a,b) => {
+        if(a[prop] && !b[prop]){
+            return -1;
+        } else if(!a[prop] && b[prop]) {
+            return 1;
+        } else {
+            return 1;
+        } 
+    })
+    mapSuggestedGames(true);
+};
+
+const mapSuggestedGames = (searchValue) => {
     cardSearchField.placeholder = "Search suggested games..";
-    if(!filter) {
+    if(!searchValue) {
         suggestedGamesJson.map(({image, username, name, next, completed, declined}) => {
             cardElement.innerHTML += `
                     <div class="card-item">
@@ -49,9 +64,9 @@ const mapSuggestedGames = (filter) => {
     }
 };
 
-const mapOwnedGames = (filter) => {
+const mapOwnedGames = (searchValue) => {
     cardSearchField.placeholder = "Search owned games..";
-    if(!filter) {
+    if(!searchValue) {
         ownedGamesJson.map(({name, image}) => {
             cardElement.innerHTML += `
                     <div class="card-item" style="margin-bottom: 0;">
@@ -174,17 +189,49 @@ const onSubmitHandler = () => {
     }
 };
 
-// Event Listeners
+// * Event Listeners
+
+// Listens for option to be selected to sort games by
+selectElement.addEventListener("change", () => {
+    switch(selectElement.value) {
+        case "next":
+            sortGames("next");
+            break;
+        case "completed":
+            sortGames("completed");
+            break;
+        case "declined":
+            sortGames("declined");
+            break;
+        default:
+            return;
+    }
+});
+
+// Listens for if button "owned games" or "suggested games" is clicked to switch card
 cardFlipperButton.addEventListener("click", () => {
     currentCardSide = (currentCardSide === 1 ? 2: 1);
     cardFlipper();
 });
+
+// Opens game search modal/popup
+// * Desktop
 openModalButton.addEventListener("click", () => modalElement.style.display = "block");   
-openModalButtonMobile.addEventListener("click", () => modalElement.style.display = "block")
+// * Mobile
+openModalButtonMobile.addEventListener("click", () => modalElement.style.display = "block");
+
+// Closes modal/popup
 closeModalButton.addEventListener("click", () => modalElement.style.display = "none");
+
+// Listens for search button to be clicked in the modal/popup to allow searching for games
 searchButton.addEventListener("click", async () => {
+    // Gives the selected game button a inverted color
     if(filterButton.classList.contains("selected")) filterButton.classList.toggle("selected");
+
+    // Resets search results
     gameBoxField.innerHTML = '';
+
+    // Fetches games from database based off of search value
     try {
         let res = await axios.get(`/search-games?term=${searchFieldElement.value}`);
         res.data.map(({name, released, image}, i) => {

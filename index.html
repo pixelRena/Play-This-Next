@@ -22,9 +22,19 @@
             <button class="main-button">View Owned Games</button>
             <button class="add-game-button-mobile">Submit Game Suggestion</button>
             <div class="card">
-                <h3 class="card-header">Suggested Games:</h3>
+                <div id="card-header-container">
+                    <h3 class="card-header">Suggested Games:</h3>
+                    <div id="sort-games-container">
+                        <label for="games">Sort by:</label>
+                        <select name="games" id="sort-games-selection">
+                            <option value="next">Playing Next</option>
+                            <option value="completed">Completed</option>
+                            <option value="declined">Declined</option>
+                        </select>
+                    </div>
+                </div>
                 <button class="add-game-button">+</button>
-                <input type="text" class="card-search-input" placeholder="Search games.." onkeydown="checkSearchArea()"/>
+                <input type="text" id="card-search-input" placeholder="Search games.." onkeydown="checkSearchArea()"/>
                 <div class="card-body">
                     <!-- Loop card items -->
                 </div>
@@ -49,7 +59,6 @@
             </div>
         </section>
     </main>
-
 
     <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> 
     <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 

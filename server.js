@@ -22,13 +22,15 @@ firebase.initializeApp({
 });
 
 const db = firebase.firestore();
+// Firebase collections:
 const steamDB = db.collection("steam");
-const suggestedDB = db.collection("suggested");
+const suggestedDB = db.collection("suggested").orderBy("next");
 
 const app = express();
 app.use(express.static(staticPath));
 app.use(express.json());
 
+// Fetches steam games
 app.get('/steam-games', async (req,res) => {
     try {
         const {data} = await axios.get("https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key="+process.env.STEAM_WEB_API_KEY+"&steamid="+process.env.STEAM_ID+"&include_appinfo=true&format=json");
@@ -39,6 +41,7 @@ app.get('/steam-games', async (req,res) => {
     }
 });
 
+// Fetches steam games stored in firebase DB
 app.get('/steam-games-collection', async (req,res) => {   
     let gamesInDB = [];
 
@@ -50,6 +53,7 @@ app.get('/steam-games-collection', async (req,res) => {
     res.send(gamesInDB);
 });
 
+// Updates steam games in firebase DB
 app.post('/seed-steam-games', async (req,res) => {
     const { gamesList } = req.body;
     let gamesInDB = [];
@@ -70,17 +74,23 @@ app.post('/seed-steam-games', async (req,res) => {
     res.send(gamesInDB);
 });
 
+// Gets results from search input of adding a game
 app.get('/search-games', async (req,res) => {
     const { term } = req.query;
     try {
         const {data} = await axios.get(`https://api.rawg.io/api/games?search=${term}&key=${process.env.RAWG_API_KEY}`, { headers: { "Accept-Encoding": "gzip,deflate,compress" } })
         let dataReceived = data.results;
         let dataArr = [];
-        dataReceived.map(({name, released, background_image}) => dataArr.push({"name":name, "released":released,"image":background_image}));
+        dataReceived.map(({name, released, background_image}) => dataArr.push({
+            "name": name, 
+            "released": released,
+            "image": background_image
+        }));
         res.send(dataArr);
     } catch(error) { res.send(error) }
 });
 
+// Gets the suggested games from firebase DB
 app.get('/suggested-games-collection', async(req,res) => {
     let gamesInDB = [];
 
@@ -92,6 +102,7 @@ app.get('/suggested-games-collection', async(req,res) => {
     res.send(gamesInDB);
 });
 
+// Adds new suggested game to firebase DB
 app.post('/add-suggested-game', async (req,res) => {
     const { suggestedGames, username } = req.body;
     let gamesInDB = [];
@@ -101,6 +112,7 @@ app.post('/add-suggested-game', async (req,res) => {
             username: username || "N/A",
             name,
             image,
+            next: false,
         });
     });
 
@@ -112,6 +124,7 @@ app.post('/add-suggested-game', async (req,res) => {
     res.send(gamesInDB);
 });
 
+// Gets static html page
 app.use('/', (req,res) => res.sendFile(path.join(staticPath, "index.html")));
 
 app.listen(process.env.PORT || 3000, () => { console.log("listening on port.."+process.env.PORT)});

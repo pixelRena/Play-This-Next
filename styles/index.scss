@@ -49,10 +49,12 @@ button { cursor: pointer; }
     background-color: $status-completed-background;
     color: $status-completed-color;
 }
+
 .game-status-next { 
     color: $status-next-color;
     background-color: $status-next-background;
 }
+
 .game-status-declined { 
     background-color: $status-declined-background;
     color: $status-declined-color; 
@@ -182,11 +184,12 @@ main {
             font-weight: lighter;
         }
 
-        .card-search-input {
+        #card-search-input {
             display: block;
             margin: 0 auto;
             width: 90%;
-            border: 1px solid white;
+            border: 0;
+            border-bottom: 1px solid white;
             background-color: rgba(0,0,0,0); 
             color: inherit; 
             font-family: inherit;
@@ -194,34 +197,54 @@ main {
             margin-bottom: 15px;
 
             &:focus { outline: none !important; }
-
-            &:hover { 
-                background-color: white; 
-                color: black; 
-                font-weight: bolder;
-            }
         }
 
-        .card-header,
+        #card-header-container,
         .card-body,
         .card-footer {
             padding: 0 25px 15px 25px;
         }
 
-            
-        .card-header {
-            font-weight: unset;
-            margin-top: unset;
-            margin-bottom: unset;
-
-            &::after {
-                content: "";
-                margin-top: -15px;
-                display: block;
-                border-bottom: 0.3px solid white;
-                width: 35%;
+        #card-header-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+            .card-header {
+                font-weight: unset;
+                margin-top: unset;
+                margin-bottom: unset;
+    
+                &::after {
+                    content: "";
+                    margin-top: -15px;
+                    display: block;
+                    border-bottom: 0.3px solid white;
+                    width: 35%;
+                }
             }
-        }
+            #sort-games-container {   
+                font-size: 13px;
+                font-weight: bold;
+                #sort-games-selection {
+                    background-image: none;
+                    border: 0;
+                    cursor: pointer;
+                    outline: none;
+                    background-color: transparent;
+                    color: white;
+                    font-family: inherit;
+                    font-size: inherit;
+                    font-weight: inherit;
+                    &:hover { text-decoration: underline; }
+                    option { 
+                        background-color: $secondary-color;
+                        font-weight: bolder; 
+                        &:hover { background-color: red !important; }
+                    }
+                }
+            }
+        }  
 
         .card-body {
             display: flex;
@@ -423,13 +446,20 @@ main {
 
         .card {
             font-size: 13px;
-            .card-search-input { 
+            #card-search-input { 
                 border-radius: 0; 
                 padding: 5px;
             }
-            .card-header { 
-                margin-top: 10px;
-                &::after { margin-top: unset; }
+            #card-header-container {
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: flex-start;
+                gap: 5px;
+                padding-bottom: 0;
+                .card-header { 
+                    margin-top: 10px;
+                    &::after { margin-top: unset; }
+                }
             }
             .card-item {
                 & div:nth-child(2) { margin-top: unset; }
