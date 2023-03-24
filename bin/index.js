@@ -1,13 +1,3 @@
-// Handles search input depedending on if the card is on the owned or suggested games section
-// True indicates there is a search value to be found
-const checkSearchArea = () => {
-    if(currentCardSide !== 1) {
-       mapOwnedGames(true);
-    } else {
-        mapSuggestedGames(true);
-    }
-};
-
 const sortGames = (prop) => {
     suggestedGamesJson.sort((a,b) => {
         if(a[prop] && !b[prop]){
@@ -138,6 +128,17 @@ const onChangeHandler = (name, image, index) => {
 };
 
 // * Event Listeners
+
+// Handles search input depedending on if the card is on the owned or suggested games section
+// True indicates there is a search value to be found
+cardSearchField.addEventListener("keydown", () => {
+    if(currentCardSide !== 1) {
+        mapOwnedGames(true);
+    } else {
+        mapSuggestedGames(true);
+    }
+});
+
 
 submitGameButton.addEventListener("click", () => {
     var username;
