@@ -369,12 +369,12 @@ main .submit-modal .modal-footer {
   text-align: center;
   margin-top: 5px;
 }
-main .submit-modal .submit-game-button:disabled {
+main .submit-modal #submit-game-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-main .submit-modal .submit-game-button,
-main .submit-modal .close-modal-button {
+main .submit-modal #submit-game-button,
+main .submit-modal #close-modal-button {
   font-family: inherit;
   font-size: 17px;
   color: inherit;

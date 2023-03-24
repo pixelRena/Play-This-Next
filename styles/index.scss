@@ -402,15 +402,15 @@ main {
             margin-top: 5px;
         }
 
-        .submit-game-button {
+        #submit-game-button {
             &:disabled { 
                 opacity: 0.5; 
                 cursor: not-allowed;
             }
         }
 
-        .submit-game-button,
-        .close-modal-button {
+        #submit-game-button,
+        #close-modal-button {
             font-family: inherit;
             font-size: 17px;
             color: inherit;

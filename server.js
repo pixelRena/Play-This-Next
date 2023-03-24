@@ -105,10 +105,11 @@ app.get('/suggested-games-collection', async(req,res) => {
 // Adds new suggested game to firebase DB
 app.post('/add-suggested-game', async (req,res) => {
     const { suggestedGames, username } = req.body;
+    let updatedSuggestedGames = db.collection("suggested");
     let gamesInDB = [];
 
     suggestedGames.map(({name, image}) => {    
-        suggestedDB.doc(name).set({
+        updatedSuggestedGames.doc(name).set({
             username: username || "N/A",
             name,
             image,
@@ -116,7 +117,7 @@ app.post('/add-suggested-game', async (req,res) => {
         });
     });
 
-    await suggestedDB.get()
+    await updatedSuggestedGames.get()
     .then((snapshot) => {
         snapshot.forEach(snap => gamesInDB.push(snap.data()))
     });

@@ -137,7 +137,9 @@ const onChangeHandler = (name, image, index) => {
     submitGameButton.disabled = suggestedGames.length ? false : true;
 };
 
-const onSubmitHandler = () => {
+// * Event Listeners
+
+submitGameButton.addEventListener("click", () => {
     var username;
 
     // Checking for username in storage
@@ -149,9 +151,7 @@ const onSubmitHandler = () => {
         localStorage.setItem("username-serenuy-games-ttv", username);
         setSuggestedGames(username);
     }
-};
-
-// * Event Listeners
+});
 
 // Listens for option to be selected to sort games by
 selectElement.addEventListener("change", () => {
