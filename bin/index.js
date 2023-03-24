@@ -107,6 +107,7 @@ const cardFlipper = () => {
         cardElement.innerHTML = '';
         mapOwnedGames();
     }
+    cardSearchField.value = '';
 };
 
 /* Handlers */
