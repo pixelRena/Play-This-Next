@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/pixelRena/">
-    <img src="https://cdn.icon-icons.com/icons2/2992/PNG/512/twitch_logo_icon_187308.png" alt="Logo" width="80">
+    <img src="./assets/images/favicon.svg" alt="Logo" width="80">
   </a>
 
 <h2 align="center">Recommend Games</h2>
