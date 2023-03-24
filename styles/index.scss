@@ -455,7 +455,6 @@ main {
                 justify-content: space-around;
                 align-items: flex-start;
                 gap: 5px;
-                padding-bottom: 0;
                 .card-header { 
                     margin-top: 10px;
                     &::after { margin-top: unset; }

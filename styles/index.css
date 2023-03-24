@@ -421,7 +421,6 @@ main .submit-modal #close-modal-button {
     justify-content: space-around;
     align-items: flex-start;
     gap: 5px;
-    padding-bottom: 0;
   }
   main .card #card-header-container .card-header {
     margin-top: 10px;
