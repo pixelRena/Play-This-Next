@@ -16,6 +16,10 @@ a:hover {
   text-decoration: underline;
 }
 
+li {
+  list-style-type: circle;
+}
+
 html, body {
   width: 100%;
   margin: 0;
@@ -31,6 +35,22 @@ body {
 
 button {
   cursor: pointer;
+}
+
+#notification {
+  display: none;
+  position: fixed;
+  z-index: 99;
+  top: 5%;
+  left: 50%;
+  width: 40%;
+  transform: translate(-50%, -5%);
+  box-shadow: 2px 5px white;
+  padding: 5px 20px;
+  background-color: #0C0C0C;
+  color: white;
+  border: 1px solid white;
+  border-radius: 0px 21px 21px 0px;
 }
 
 [class*=game-status] {
@@ -228,9 +248,6 @@ main .card #card-header-container #sort-games-container #sort-games-selection op
   background-color: #0C0C0C;
   font-weight: bolder;
 }
-main .card #card-header-container #sort-games-container #sort-games-selection option:hover {
-  background-color: red !important;
-}
 main .card .card-body {
   display: flex;
   flex-direction: column;
@@ -392,6 +409,9 @@ main .submit-modal #close-modal-button {
   }
   body {
     background-position: center;
+  }
+  #notification {
+    width: 80%;
   }
   main section:nth-child(2) {
     width: 90vw;

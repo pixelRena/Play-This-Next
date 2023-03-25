@@ -26,6 +26,8 @@ a {
     &:hover { text-decoration: underline; }
 }
 
+li { list-style-type: circle; }
+
 html, body {
     width: 100%;
     margin: 0;
@@ -40,6 +42,22 @@ body {
 }
 
 button { cursor: pointer; }
+
+#notification {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    top: 5%;
+    left: 50%;
+    width: 40%;
+    transform: translate(-50%,-5%);
+    box-shadow: 2px 5px white;
+    padding: 5px 20px;
+    background-color: $secondary-color;
+    color: white;
+    border: 1px solid white;
+    border-radius: $custom-border-box;
+}
 
 [class*="game-status"] {
     padding: 0 5px;
@@ -240,7 +258,6 @@ main {
                     option { 
                         background-color: $secondary-color;
                         font-weight: bolder; 
-                        &:hover { background-color: red !important; }
                     }
                 }
             }
@@ -427,6 +444,7 @@ main {
 @media (max-width: 768px) {
     * { font-weight: bold; }
     body { background-position: center; }
+    #notification { width: 80%; }
 
     main {
         section {

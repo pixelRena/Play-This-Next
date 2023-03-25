@@ -1,3 +1,9 @@
+const displayAlert = (message) => {
+    notificationElement.style.display = "unset";
+    notificationElement.innerHTML = message;
+    setTimeout(() => {notificationElement.style.display = "none";},2500);
+};
+
 const moveItemInArray = (arr, oldIndex, newIndex) => {
     if (newIndex >= arr.length) {
       let i = newIndex - arr.length + 1;
@@ -52,7 +58,7 @@ const setGames = async () => {
         gameCount = res.data.game_count;
         gamesList = res.data.games;
         createDocument();
-    } catch(error) { console.log(error) }
+    } catch(error) { console.error(error) }
 };
 
 const setSuggestedGames = async (username) => {
@@ -64,10 +70,17 @@ const setSuggestedGames = async (username) => {
         searchFieldElement.value = "";
         gameBoxField.innerHTML = "";
         submitGameButton.disabled = true;
-        alert("Game(s) added successfully.");
+        let tempMessage = `
+            Game(s) successfully added:
+            <ul>
+                ${suggestedGames.map((game) => `<li>${game.name}</li>`)}
+            </ul>`;
+        displayAlert(tempMessage);
+        // Re-render list
+        mapSuggestedGames(false);
         cardFlipper();
         
-    } catch(error) { console.log(error) }
+    } catch(error) { displayAlert("Unable to add game to list. Try again later.") }
 
     setTimeout(() => {suggestedGames = []}, 500);
 };

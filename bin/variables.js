@@ -14,6 +14,7 @@ const cardSearchField = document.querySelector("#card-search-input");
 const filterButton = document.querySelector("#filter-games-btn");
 const selectElementContainer = document.querySelector("#sort-games-container");
 const selectElement = document.querySelector("#sort-games-selection");
+const notificationElement = document.querySelector("#notification");
 let currentCardSide = 1;
 var gameCount; 
 var gamesList;

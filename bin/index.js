@@ -107,7 +107,7 @@ const cardFlipper = () => {
         cardFooterElement.innerHTML = "Games Owned (Steam): "+ownedGamesJson.length;
         cardElement.innerHTML = '';
         selectElementContainer.style.display = "none";
-        mapOwnedGames();
+        setTimeout(() => {mapOwnedGames()},800);
     }
     cardSearchField.value = '';
 };
@@ -134,7 +134,7 @@ const onChangeHandler = (name, image, index) => {
 
 // Handles search input depedending on if the card is on the owned or suggested games section
 // True indicates there is a search value to be found
-cardSearchField.addEventListener("keydown", () => {
+cardSearchField.addEventListener("keydown", function() {
     if(currentCardSide !== 1) {
         mapOwnedGames(true);
     } else {
@@ -143,7 +143,7 @@ cardSearchField.addEventListener("keydown", () => {
 });
 
 
-submitGameButton.addEventListener("click", () => {
+submitGameButton.addEventListener("click", function() {
     var username;
 
     // Checking for username in storage
@@ -158,7 +158,7 @@ submitGameButton.addEventListener("click", () => {
 });
 
 // Listens for option to be selected to sort games by
-selectElement.addEventListener("change", () => {
+selectElement.addEventListener("change", function() {
     switch(selectElement.value) {
         case "next":
             sortGames("next");
@@ -175,22 +175,22 @@ selectElement.addEventListener("change", () => {
 });
 
 // Listens for if button "owned games" or "suggested games" is clicked to switch card
-cardFlipperButton.addEventListener("click", () => {
+cardFlipperButton.addEventListener("click", function() {
     currentCardSide = (currentCardSide === 1 ? 2: 1);
     cardFlipper();
 });
 
 // Opens game search modal/popup
 // * Desktop
-openModalButton.addEventListener("click", () => modalElement.style.display = "block");   
+openModalButton.addEventListener("click", function() {modalElement.style.display = "block"});   
 // * Mobile
-openModalButtonMobile.addEventListener("click", () => modalElement.style.display = "block");
+openModalButtonMobile.addEventListener("click", function() {modalElement.style.display = "block"});
 
 // Closes modal/popup
-closeModalButton.addEventListener("click", () => modalElement.style.display = "none");
+closeModalButton.addEventListener("click", function() {modalElement.style.display = "none"});
 
 // Listen for modal/popup filter button
-filterButton.addEventListener("click", () => {
+filterButton.addEventListener("click", function() {
     // Gives the selected game button a inverted color
     filterButton.classList.toggle("selected");
     
