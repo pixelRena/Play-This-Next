@@ -14,9 +14,10 @@ const sortGames = (prop) => {
 const mapSuggestedGames = (searchValue) => {
     cardSearchField.placeholder = "Search suggested games..";
     loaderElementContainer.style.display = "none";
-    
+
     if(!searchValue) {
         suggestedGamesJson.map(({image, username, name, next, completed, declined}) => {
+            if(completed) gamesCompleted++;
             cardElement.innerHTML += `
                     <div class="card-item">
                         <!-- Column -->
@@ -36,6 +37,7 @@ const mapSuggestedGames = (searchValue) => {
         cardElement.innerHTML = '';
         let searchGamesJson = suggestedGamesJson.filter(item => (item.name.toLowerCase()).includes(cardSearchField.value.toLowerCase()));
         searchGamesJson.map(({image, username, name, next, completed, declined}) => {
+                if(completed) gamesCompleted++;
                 cardElement.innerHTML += `
                 <div class="card-item">
                 <!-- Column -->
@@ -99,13 +101,14 @@ const mapOwnedGames = (searchValue) => {
 // Flips from owned to suggested games & triggers mapping
 const cardFlipper = () => {
     loaderElementContainer.style.display = "unset";
+    gamesCompleted = 0;
     if (currentCardSide === 1) {
         cardElement.innerHTML = '';
         cardHeaderElement.innerHTML = "Suggested Games:";
         cardFlipperButton.innerHTML = "View Owned Games";
-        cardFooterElement.innerHTML = "Games Completed: -";
         selectElementContainer.style.display = "unset";
         mapSuggestedGames();
+        cardFooterElement.innerHTML = "Games Completed: "+gamesCompleted;
     } else {
         loaderElementContainer.style.display = "unset";
         cardHeaderElement.innerHTML = "Owned Games:";

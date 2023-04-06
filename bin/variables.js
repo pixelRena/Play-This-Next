@@ -17,6 +17,7 @@ const selectElement = document.querySelector("#sort-games-selection");
 const notificationElement = document.querySelector("#notification");
 const loaderElementContainer = document.querySelector("#loader-container");
 let currentCardSide = 1;
+var gamesCompleted = 0;
 var gameCount; 
 var gamesList;
 var ownedGamesJson;
