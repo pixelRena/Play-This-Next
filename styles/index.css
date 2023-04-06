@@ -479,4 +479,42 @@ main .submit-modal #close-modal-button {
     gap: 5px;
     margin-bottom: 10px;
   }
+}
+@media (min-width: 2560px) {
+  main section:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 30vw;
+  }
+  main .avatar-container {
+    width: 200px;
+    height: 200px;
+  }
+  main .card .card-body {
+    flex-direction: unset;
+    height: 530px;
+    padding-top: 15px;
+  }
+  main .card .card-item .card-game-title {
+    line-height: unset;
+  }
+  main .card .card-item .card-image-holder {
+    width: 200px;
+  }
+  main .card .card-item .card-image-holder .owned-game-cover {
+    width: 100px;
+  }
+  main .submit-modal {
+    height: 100%;
+  }
+  main .submit-modal .modal-body {
+    height: 70%;
+  }
+  main .submit-modal .modal-body .modal-listed-games {
+    height: 80%;
+  }
+  main .submit-modal .modal-body .modal-listed-games .game-box {
+    height: 100%;
+  }
 }/*# sourceMappingURL=index.css.map */

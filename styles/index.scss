@@ -509,3 +509,48 @@ main {
         }
     }
 }
+
+@media (min-width: 2560px) {
+    main {
+        section:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            width: 30vw;
+        }
+
+        .avatar-container {
+            width: 200px;
+            height: 200px;
+        }
+
+        .card {
+            .card-body {
+                flex-direction: unset;
+                height: 530px;
+                padding-top: 15px;
+            }
+
+            .card-item {
+                .card-game-title { line-height: unset; }
+                .card-image-holder { 
+                    width: 200px; 
+                    .owned-game-cover {
+                        width: 100px;
+                    }
+                }
+            }
+        }
+
+        .submit-modal {
+            height: 100%;
+            .modal-body { 
+                height: 70%; 
+                .modal-listed-games { 
+                    height: 80%; 
+                    .game-box { height: 100%; }
+                }
+            }
+        }
+    }
+}

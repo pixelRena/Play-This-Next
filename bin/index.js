@@ -68,7 +68,7 @@ const mapOwnedGames = (searchValue) => {
                     <div class="card-item" style="margin-bottom: 0;">
                         <!-- Column -->
                         <div class="card-image-holder">
-                            <img src=${image} alt="game-cover" height="100%" width="50">
+                            <img class="owned-game-cover" src=${image} alt="game-cover" height="100%" width="50">
                         </div>
                         <!-- Column -->
                         <div>
@@ -85,7 +85,7 @@ const mapOwnedGames = (searchValue) => {
                     <div class="card-item">
                         <!-- Column -->
                         <div class="card-image-holder">
-                            <img src=${image} alt="game-cover" height="100%" width="50">
+                            <img class="owned-game-cover" src=${image} alt="game-cover" height="100%" width="50">
                         </div>
                         <!-- Column -->
                         <div>
