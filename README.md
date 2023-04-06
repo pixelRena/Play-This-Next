@@ -11,5 +11,15 @@
     ·
     <a href="https://github.com/pixelRena/games-recommendations/issues">Report Bug</a>
   </p>
-  
 </div>
+
+<h3>📎 Resources 📎</h3>
+<ul>
+  <li>Figma</li>
+  <li>Firestore/Firebase</li>
+  <li>RAWG API</li>
+  <li>Steam API</li>
+  <li>Icons8</li>
+  <li>ParticlesJS</li>
+  <li>Loading.io</li>
+</ul>
