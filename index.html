@@ -63,10 +63,10 @@
             <div class="submit-modal">
                 <h2 class="modal-header">Suggest a game</h2>
                 <div class="modal-body">
-                    <div class="search-wrapper">
+                    <form class="search-wrapper" onsubmit="onModalSubmitHandler(event)">
                         <input class="search-field" type="text" placeholder="Search a game...">
-                        <button class="search-btn">Search</button>
-                    </div>
+                        <button class="search-btn" type="submit">Search</button>
+                    </form>
                     <button id="filter-games-btn" type="button">Filter By Games Selected</button>
                     <div class="modal-listed-games">
                         <div class="game-box">

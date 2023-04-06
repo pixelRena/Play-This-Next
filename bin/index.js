@@ -139,6 +139,40 @@ const onChangeHandler = (name, image, index) => {
     submitGameButton.disabled = suggestedGames.length ? false : true;
 };
 
+// Listens for search button to be clicked or return button in the modal/popup to allow searching for games
+const onModalSubmitHandler = async (event) => {
+    event.preventDefault();
+    // Gives the selected game button a inverted color
+    if(filterButton.classList.contains("selected")) filterButton.classList.toggle("selected");
+
+    // Resets search results
+    gameBoxField.innerHTML = '';
+
+    // Fetches games from database based off of search value
+    try {
+        let res = await axios.get(`/search-games?term=${searchFieldElement.value}`);
+        res.data.map(({name, released, image}, i) => {
+            gameBoxField.innerHTML += `
+            <div class="card-item">
+                <!-- Column -->
+                <div class="card-image-holder">
+                    <img src=${image} alt="game-cover" height="100%" width="100%">
+                </div>
+                <!-- Column -->
+                <div>
+                    <div class="card-game-title">${name}</div>
+                    <div class="card-add-btn" style="margin-top: 5px; color:white; font-weight: bolder; cursor:pointer; width: 7vw; font-size: 15px; text-align:center; border: 1px solid white;"
+                    onclick="onChangeHandler('${name}','${image}', ${i})">Add</div>
+                </div>
+            </div>
+            `
+        })
+    } catch(error) {   
+        console.log(error);
+    }
+};
+
+
 // * Event Listeners
 
 // Handles search input depedending on if the card is on the owned or suggested games section
@@ -237,37 +271,5 @@ filterButton.addEventListener("click", function() {
         searchButton.click();
     }
 })
-
-// Listens for search button to be clicked in the modal/popup to allow searching for games
-searchButton.addEventListener("click", async () => {
-    // Gives the selected game button a inverted color
-    if(filterButton.classList.contains("selected")) filterButton.classList.toggle("selected");
-
-    // Resets search results
-    gameBoxField.innerHTML = '';
-
-    // Fetches games from database based off of search value
-    try {
-        let res = await axios.get(`/search-games?term=${searchFieldElement.value}`);
-        res.data.map(({name, released, image}, i) => {
-            gameBoxField.innerHTML += `
-            <div class="card-item">
-                <!-- Column -->
-                <div class="card-image-holder">
-                    <img src=${image} alt="game-cover" height="100%" width="100%">
-                </div>
-                <!-- Column -->
-                <div>
-                    <div class="card-game-title">${name}</div>
-                    <div class="card-add-btn" style="margin-top: 5px; color:white; font-weight: bolder; cursor:pointer; width: 7vw; font-size: 15px; text-align:center; border: 1px solid white;"
-                    onclick="onChangeHandler('${name}','${image}', ${i})">Add</div>
-                </div>
-            </div>
-            `
-        })
-    } catch(error) {   
-        console.log(error);
-    }
-});
 
 getGames();
