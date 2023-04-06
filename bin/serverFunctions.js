@@ -1,7 +1,7 @@
 const displayAlert = (message) => {
     notificationElement.style.display = "unset";
     notificationElement.innerHTML = message;
-    setTimeout(() => {notificationElement.style.display = "none";},2500);
+    setTimeout(() => {notificationElement.style.display = "none";},3500);
 };
 
 const moveItemInArray = (arr, oldIndex, newIndex) => {

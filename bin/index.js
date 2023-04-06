@@ -126,6 +126,11 @@ const onChangeHandler = (name, image, index) => {
     let quantityButton = document.querySelectorAll(".card-add-btn")[index];
 
     if (quantityButton.style.backgroundColor !== "white") {
+        // Check if the game has already been added to the list
+        if(suggestedGames.some(game => game.name === name)) {
+            displayAlert(`You've already added the game: ${name} to the list. You can confirm by filtering the games selected.`);
+            return;
+        }
         suggestedGames.push({"name": name, "image": image});
         quantityButton.style.backgroundColor = "white";
         quantityButton.style.color = "black";
