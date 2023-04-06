@@ -264,10 +264,12 @@ main {
         }  
 
         .card-body {
+            position: relative;
             display: flex;
             flex-direction: column;
             height: 280px;
-            overflow: auto;
+            overflow-y: auto;
+            overflow-x: hidden;
         }
 
         .card-item {

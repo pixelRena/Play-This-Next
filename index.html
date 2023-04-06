@@ -8,6 +8,7 @@
     <meta name="description" content="View games and suggest games to twitch user by searching video game database RAWG">
     <link href="./assets/images/favicon.svg" rel="icon">
     <link href="./styles/index.css" rel="stylesheet">
+    <link href="./styles/loader.css" rel="stylesheet">
     <link href="./styles/particles.css" rel="stylesheet">
 </head>
 <body>
@@ -42,6 +43,18 @@
                 <input type="text" id="card-search-input" placeholder="Search games.."/>
                 <div class="card-body">
                     <!-- Loop card items -->
+                    <div class="card-list">
+
+                    </div>
+                    
+                    <!-- Loader -->
+                    <div id="loader-container">
+                        <div id="loader">
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="card-footer"></div>
             </div>

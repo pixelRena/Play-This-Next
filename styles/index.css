@@ -249,10 +249,12 @@ main .card #card-header-container #sort-games-container #sort-games-selection op
   font-weight: bolder;
 }
 main .card .card-body {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 280px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 main .card .card-item {
   display: flex;

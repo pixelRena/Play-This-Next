@@ -13,6 +13,8 @@ const sortGames = (prop) => {
 
 const mapSuggestedGames = (searchValue) => {
     cardSearchField.placeholder = "Search suggested games..";
+    loaderElementContainer.style.display = "none";
+    
     if(!searchValue) {
         suggestedGamesJson.map(({image, username, name, next, completed, declined}) => {
             cardElement.innerHTML += `
@@ -51,11 +53,13 @@ const mapSuggestedGames = (searchValue) => {
                 </div>
             `;
         });
-    }
+    } 
 };
 
 const mapOwnedGames = (searchValue) => {
     cardSearchField.placeholder = "Search owned games..";
+    loaderElementContainer.style.display = "none";
+
     if(!searchValue) {
         ownedGamesJson.map(({name, image}) => {
             cardElement.innerHTML += `
@@ -94,6 +98,7 @@ const mapOwnedGames = (searchValue) => {
 
 // Flips from owned to suggested games & triggers mapping
 const cardFlipper = () => {
+    loaderElementContainer.style.display = "unset";
     if (currentCardSide === 1) {
         cardElement.innerHTML = '';
         cardHeaderElement.innerHTML = "Suggested Games:";
@@ -102,6 +107,7 @@ const cardFlipper = () => {
         selectElementContainer.style.display = "unset";
         mapSuggestedGames();
     } else {
+        loaderElementContainer.style.display = "unset";
         cardHeaderElement.innerHTML = "Owned Games:";
         cardFlipperButton.innerHTML = "View Suggested Games";
         cardFooterElement.innerHTML = "Games Owned (Steam): "+ownedGamesJson.length;
