@@ -13,8 +13,3 @@
   </p>
   
 </div>
-
-### WIP Functionalities:
-- Add another section for console games
-- Loading symbol (For rendering games, prevent loading all games)
-- Prevent duplications (Additional server-side validations)
