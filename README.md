@@ -5,7 +5,7 @@
 
 <h2 align="center">Recommend Games</h2>
   <p align="center">
-    This is an application strictly to allow users/followers from twitch to suggest games and view games that are owned through steam.
+    This is an application strictly to allow users/followers from twitch to suggest games and view games that are owned through steam. It uses VANILLA Html, JavaScript. There is a new <a href="https://github.com/pixelRena/Play-This-Next-React" >repository</a> that is now being updated, this repo will not be updated again as using React is more optimal.
     <br />
     <a href="http://nuygames.xyz/">View Demo</a>
     ·
